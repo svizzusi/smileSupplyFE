@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
-const NavBar = (props) => {
+const NavBar = ({setShowLogin, setShowSignup}) => {
     const [navExpanded, setNavExpanded] = useState(false)
 
     const openNav = () => {
@@ -33,12 +33,12 @@ const NavBar = (props) => {
                   </li>
                   <li>
                       <span 
-                          onClick={() => { closeNav() }}
+                          onClick={() => { closeNav(), setShowLogin(true) }}
                       >Login</span>
                   </li>
                   <li>
                       <span 
-                          onClick={() => { closeNav() }}
+                          onClick={() => { closeNav(), setShowSignup(true) }}
                       >Sign Up</span>
                   </li>
                 </ul>

@@ -4,16 +4,7 @@ import { useState } from 'react'
 import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 
-const Signup = ({setShowSignup, showSignup, visable, onClose}) => {
-  if (!visable) {
-    return null;
-  }
-
-  function handleClose(e) {
-    if (e.target.id === 'signup') {
-      onClose();
-    }
-  }
+const Signup = ({setShowSignup, showSignup}) => {
 
   const navigate = useNavigate()
 
@@ -35,8 +26,6 @@ const Signup = ({setShowSignup, showSignup, visable, onClose}) => {
 
   return (
     <section 
-      id="signup"
-      onClick={handleClose}
       className={style.signupFormSection}
     >
       <div className={style.signupFormIconContainer}>

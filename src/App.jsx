@@ -6,8 +6,8 @@ import Dashboard from "./views/Dashboard"
 import Footer from "./layout/footer/Footer"
 
 function App() {
-  const [showLogin, setShowLogin] = useState(true)
-  const [showSignup, setShowSignup] = useState(true)
+  const [showLogin, setShowLogin] = useState(false)
+  const [showSignup, setShowSignup] = useState(false)
 
   return (
     <>

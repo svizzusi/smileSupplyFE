@@ -9,8 +9,8 @@ const Home = ({showLogin, setShowLogin, showSignup, setShowSignup}) => {
   return (
     <>
       <HeroSection />
-      {showLogin && <Login />}
-      {showSignup && <Signup />}
+      {showLogin && <Login showLogin={showLogin} setShowLogin={setShowLogin}/>}
+      {showSignup && <Signup showSignup={showSignup} setShowSignup={setShowSignup}/>}
     </>
   )
 };

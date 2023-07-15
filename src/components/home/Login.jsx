@@ -4,16 +4,7 @@ import { useState } from 'react'
 import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 
-const Login = ({setShowLogin, showLogin, visable, onClose}) => {
-  if (!visable) {
-    return null;
-  }
-
-  function handleClose(e) {
-    if (e.target.id === 'login') {
-      onClose();
-    }
-  }
+const Login = ({setShowLogin, showLogin}) => {
 
   const navigate = useNavigate()
 
@@ -31,8 +22,6 @@ const Login = ({setShowLogin, showLogin, visable, onClose}) => {
 
   return (
     <section 
-      id="login"
-      onClick={handleClose}
       className={style.loginFormSection}
     >
       <div className={style.loginFormIconContainer}>
