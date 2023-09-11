@@ -89,6 +89,7 @@ Media Queries
     .hamburger:before { 
         top: -16px;
     }
+    
     .hamburger:after {
         top: 16px;
     } 
