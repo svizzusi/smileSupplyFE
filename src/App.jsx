@@ -7,14 +7,15 @@ import Footer from "./layout/footer/Footer"
 
 function App() {
   const [showLogin, setShowLogin] = useState(true)
+  const [showSignup, setShowSignup] = useState(true)
 
   return (
     <>
-      <NavBar setShowLogin={setShowLogin}/>
+      <NavBar setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
       <Routes>
         <Route
           path={'/'}
-          element={<Home showLogin={showLogin} setShowLogin={setShowLogin}/>}
+          element={<Home showLogin={showLogin} setShowLogin={setShowLogin} showSignup={showSignup} setShowSignup={setShowSignup}/>}
         ></Route>
         <Route
           path={'/dashboard'}

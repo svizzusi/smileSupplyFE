@@ -17,20 +17,16 @@ const Login = ({setShowLogin, showLogin, visable, onClose}) => {
 
   const navigate = useNavigate()
 
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault()
 
     navigate()
 
-    setName('');
     setEmail('');
     setPassword('');
-    setConfirmPassword('');
   }
 
   return (
@@ -56,14 +52,6 @@ const Login = ({setShowLogin, showLogin, visable, onClose}) => {
           <input
             className={style.loginInput}
             required
-            type="text"
-            placeholder='Name'
-            // value={name}
-            // onChange={e => setName(e.target.value)}
-          />
-          <input
-            className={style.loginInput}
-            required
             type="email"
             placeholder='Email'
             // value={email}
@@ -76,14 +64,6 @@ const Login = ({setShowLogin, showLogin, visable, onClose}) => {
             placeholder='Password'
             // value={password}
             // onChange={e => setPassword(e.target.value)}
-          />
-          <input
-            className={style.loginInput}
-            required
-            type="password"
-            placeholder='Confirm Password'
-            // value={confirmPassword}
-            // onChange={e => setConfirmPassword(e.target.value)}
           />
           <input
             className={style.loginSubmit}
