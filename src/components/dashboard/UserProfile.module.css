@@ -1,0 +1,63 @@
+.userProfileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.userProfileTopSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    margin-top: 100px;
+}
+
+.userProfileProfile {
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    background: var(--grayblue);
+    border-radius: var(--borderRadius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.userProfileButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.userProfileButtons button {
+    width: 300px;
+    padding: 12px 16px;
+    border-radius: var(--borderRadius);
+    background: var(--grayblue);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.userProfileButtons button:hover {
+    background: var(--teal);
+    color: var(--red);
+}
+
+.userProfileProducts {
+    width: 800px;
+    height: 500px;
+    padding: 20px;
+    background: var(--grayblue);
+    border-radius: var(--borderRadius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}

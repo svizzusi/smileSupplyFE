@@ -19,6 +19,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: var(--padding);
 }
 
 .logo {
@@ -36,11 +37,11 @@ header {
 .navLinks li span{
     text-decoration: none;
     font-size: var(--links);
-    color: var(--black);
+    color: var(--teal);
 }
 
 .navLinks li span:hover{
-    color: var(--grayblue);
+    color: var(--red);
     transition: .3s ease-in-out;
 }
 
