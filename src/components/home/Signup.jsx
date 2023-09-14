@@ -34,14 +34,17 @@ const Signup = ({setShowSignup, showSignup}) => {
           className={style.signupFormIcon}
         />
       </div>
+
       <form 
         onSubmit={handleSubmit}
         className={style.signupForm}
       >
+
         <div className={style.signupFormImage}>
           <img src={logoSmall} alt="logo" />
         </div>
         <div className={style.signupFormInputs}>
+
           <input
             className={style.signupInput}
             required
@@ -50,6 +53,7 @@ const Signup = ({setShowSignup, showSignup}) => {
             // value={name}
             // onChange={e => setName(e.target.value)}
           />
+
           <input
             className={style.signupInput}
             required
@@ -58,6 +62,7 @@ const Signup = ({setShowSignup, showSignup}) => {
             // value={email}
             // onChange={e => setEmail(e.target.value)}
           />
+
           <input
             className={style.signupInput}
             required
@@ -74,12 +79,14 @@ const Signup = ({setShowSignup, showSignup}) => {
             // value={confirmPassword}
             // onChange={e => setConfirmPassword(e.target.value)}
           />
+
           <input
             className={style.signupSubmit}
             // disabled={!name || !email || !password || !confirmPassword}
             type="submit"
             value='Submit'
           />
+          
         </div>
       </form>
     </section>
