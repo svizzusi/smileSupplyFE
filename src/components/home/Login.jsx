@@ -25,12 +25,14 @@ const Login = ({setShowLogin, showLogin}) => {
     <section 
       className={style.loginFormSection}
     >
+
       <div className={style.loginFormIconContainer}>
         <RiCloseCircleFill 
           onClick={() => setShowLogin(false)}
           className={style.loginFormIcon}
         />
       </div>
+
       <form 
         onSubmit={handleSubmit}
         className={style.loginForm}
@@ -38,6 +40,7 @@ const Login = ({setShowLogin, showLogin}) => {
         <div className={style.loginFormImage}>
           <img src={logoSmall} alt="logo" />
         </div>
+
         <div className={style.loginFormInputs}>
           <input
             className={style.loginInput}
@@ -47,6 +50,7 @@ const Login = ({setShowLogin, showLogin}) => {
             // value={email}
             // onChange={e => setEmail(e.target.value)}
           />
+
           <input
             className={style.loginInput}
             required
@@ -55,9 +59,10 @@ const Login = ({setShowLogin, showLogin}) => {
             // value={password}
             // onChange={e => setPassword(e.target.value)}
           />
+          
           <input
             className={style.loginSubmit}
-            // disabled={!name || !email || !password || confirmPassword}
+            // disabled={!name || !email || !password || !confirmPassword}
             type="submit"
             value='Submit'
           />

@@ -76,7 +76,7 @@ const Signup = ({setShowSignup, showSignup}) => {
           />
           <input
             className={style.signupSubmit}
-            // disabled={!name || !email || !password || confirmPassword}
+            // disabled={!name || !email || !password || !confirmPassword}
             type="submit"
             value='Submit'
           />
