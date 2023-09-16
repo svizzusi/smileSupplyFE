@@ -1,25 +1,80 @@
-import style from './Login.module.css'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import style from './Login.module.css';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 
 
-const Login = ({setShowLogin, showLogin}) => {
+const Login = ({showLogin, setShowLogin}) => {
 
   const navigate = useNavigate()
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // Use useState to manage form data
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
 
-  function handleSubmit(e) {
+  const email = formData.email;
+  const password = formData.password;
+
+  function handleClose(e) {
+    if (e.target.id === 'login') {
+      setShowLogin(false);
+    }
+  }
+
+  function handleChange(e) {
+    // Update form data based on input name
+    const { name, value } = e.target;
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    navigate()
+    try {
+      const res = await axios.post('api url', { email, password });
+      console.log(res);
+      console.log(res.data);
+      console.log(res.data.message)
+      console.log(res.data.success)
+      
+      if (res.data.success === false) {
+        toast.error('Email and/or Password do not match, Try again', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+      } else {
+        window.sessionStorage.setItem('userName', res.data.userName)
+        window.sessionStorage.setItem('userId', res.data.id)
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          password: '',
+          confirmPassword: '',
+        }));
+        navigate('/dasboard');
+        // Redirect or show success message
+      }
 
-    setEmail('');
-    setPassword('');
-  }
+    } catch (err) {
+      console.error(err);
+      // Handle error, show error message, etc.
+    }
+  };
+  
 
   return (
     <section 
@@ -59,7 +114,7 @@ const Login = ({setShowLogin, showLogin}) => {
             // value={password}
             // onChange={e => setPassword(e.target.value)}
           />
-          
+
           <input
             className={style.loginSubmit}
             // disabled={!name || !email || !password || !confirmPassword}

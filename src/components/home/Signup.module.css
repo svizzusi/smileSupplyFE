@@ -64,6 +64,11 @@
     border-radius: var(--borderRadius);
 }
 
+.formDataSpan {
+    color: var(--red);
+    font-size: 1.4rem;
+}
+
 .signupSubmit {
     width: 150px;
     padding: 10px 16px;
