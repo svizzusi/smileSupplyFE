@@ -1,4 +1,4 @@
-import style from './UserProfile.module.css'
+import style from './UserProfileBtns.module.css'
 import { useNavigate } from 'react-router-dom'
 
 const UserProfileExistingProductsBtn = () => {
@@ -8,9 +8,10 @@ const UserProfileExistingProductsBtn = () => {
   return (
     <>
         <button
-            onClick={() => navigate(`/updateProduct/${product._id}`)}
-            >Existing Products
-          </button>
+          className={style.UserProfileBtns}
+          onClick={() => navigate(`/updateProduct/${product._id}`)}
+          >Existing Products
+        </button>
     </>
   )
 };

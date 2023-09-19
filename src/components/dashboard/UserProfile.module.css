@@ -15,38 +15,10 @@
     margin-top: 100px;
 }
 
-.userProfileProfile {
-    width: 400px;
-    height: 200px;
-    padding: 20px;
-    background: var(--grayblue);
-    border-radius: var(--borderRadius);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
 .userProfileButtons {
     display: flex;
     flex-direction: column;
     gap: 30px;
-}
-
-.userProfileButtons button {
-    width: 300px;
-    padding: 12px 16px;
-    border-radius: var(--borderRadius);
-    background: var(--grayblue);
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
-.userProfileButtons button:hover {
-    background: var(--teal);
-    color: var(--red);
 }
 
 .userProfileProducts {
@@ -60,26 +32,4 @@
     align-items: center;
     justify-content: space-around;
     gap: 10px;
-}
-
-.userProfileEditBtn {
-    font-size: 2.2rem;
-    color: var(--teal);
-    padding: 6px;
-    cursor: pointer;
-}
-
-.userProfileEditBtn:hover {
-    color: aquamarine;
-}
-
-.userProfileDeleteBtn {
-    font-size: 2.2rem;
-    color: var(--red);
-    padding: 6px;
-    cursor: pointer;
-}
-
-.userProfileDeleteBtn:hover {
-    color: crimson;
 }

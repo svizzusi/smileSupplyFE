@@ -1,0 +1,21 @@
+.userProfileEditBtn {
+    font-size: 2.2rem;
+    color: var(--teal);
+    padding: 6px;
+    cursor: pointer;
+}
+
+.userProfileEditBtn:hover {
+    color: aquamarine;
+}
+
+.userProfileDeleteBtn {
+    font-size: 2.2rem;
+    color: var(--red);
+    padding: 6px;
+    cursor: pointer;
+}
+
+.userProfileDeleteBtn:hover {
+    color: crimson;
+}
