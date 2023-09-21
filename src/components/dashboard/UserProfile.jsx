@@ -2,7 +2,8 @@ import style from './UserProfile.module.css'
 import UserProfileWelcome from './UserProfileWelcome/UserProfileWelcome';
 import UserProfileExistingProductsBtn from './UserProfileBtns/UserProfileExistingProductsBtn';
 import UserProfileCreateProductBtn from './UserProfileBtns/UserProfileCreateProductBtn';
-import UserProfileProductsNeeded from './UserProfileProducts/UserProfileProductsNeeded';
+import ReorderReminder from './ReorderReminder/ReorderReminder';
+
 
 
 const UserProfile = () => {
@@ -16,8 +17,8 @@ const UserProfile = () => {
           <UserProfileCreateProductBtn />
         </div>
       </div>
-      <section className={style.userProfileProducts}>
-        <UserProfileProductsNeeded />
+      <section className={style.reorderReminder}>
+        <ReorderReminder />
       </section>
     </section>
   )

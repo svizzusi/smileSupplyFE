@@ -9,7 +9,7 @@ const UserProfileWelcome = () => {
   return (
     <>
       <div className={style.userProfileProfile}>
-          <h1>Welcome</h1>
+          <h1>Welcome to Smile Supply</h1>
           <h2>{userName}</h2>
       </div>
     </>
