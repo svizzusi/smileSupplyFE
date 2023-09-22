@@ -1,0 +1,25 @@
+.existingProductsDashboardSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sexistingProductsSearchSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 130px;
+}
+
+.existingProducts {
+    width: 100%;
+    max-width: fit-content;
+    height: fit-content;
+    margin: 50px 20px 100px 20px;
+    background: var(--grayblue);
+    border-radius: var(--borderRadius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

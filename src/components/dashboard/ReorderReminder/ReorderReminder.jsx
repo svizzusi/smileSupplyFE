@@ -6,10 +6,7 @@ const ReorderReminder = () => {
 
   return (
     <section className={style.ReorderReminderSection}>
-        <h2
-          className={style.ReorderReminderHeading}
-          >Inventory Reorder Reminder
-        </h2>
+        <h2 className={style.ReorderReminderHeading}>Inventory Reorder Reminder</h2>
         <table className={style.ReorderReminderTable}>
           <ReorderReminderHeader />
           <ReorderReminderCard />

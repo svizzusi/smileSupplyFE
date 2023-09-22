@@ -4,7 +4,7 @@ import NavBar from './layout/NavBar/NavBar'
 import Home from "./views/Home"
 import Dashboard from "./views/Dashboard"
 import Footer from "./layout/footer/Footer"
-import ExistingProducts from "./views/ExistingProducts"
+import ExistingProductsPage from "./views/ExistingProductsPage"
 
 function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -23,8 +23,8 @@ function App() {
           element={<Dashboard />}
         ></Route>
         <Route
-          path={'/existing-projects'}
-          element={<ExistingProducts />}
+          path={'/existing-products'}
+          element={<ExistingProductsPage />}
         ></Route>
       </Routes>
       <Footer />

@@ -15,7 +15,7 @@
 }
 
 .addProductFormIconContainer {
-    width: 300px;
+    width: 400px;
     display: flex;
     justify-content: flex-end;
 }
@@ -36,7 +36,7 @@
     align-items: center;
     gap: 20px;
     background: var(--teal);
-    width: 300px;
+    width: 400px;
     height: fit-content;
     border-radius: var(--borderRadius);
     top: 200px;  
@@ -57,7 +57,7 @@
 }
 
 .addProductInput {
-    width: 250px;
+    width: 350px;
     padding: 10px 16px;
     outline: none;
     border: none;
@@ -65,7 +65,7 @@
 }
 
 .addProductSubmit {
-    width: 150px;
+    width: 200px;
     padding: 10px 16px;
     outline: none;
     border: none;
