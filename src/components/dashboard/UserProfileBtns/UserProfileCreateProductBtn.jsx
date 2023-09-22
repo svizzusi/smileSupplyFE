@@ -1,15 +1,12 @@
 import style from './UserProfileBtns.module.css'
-import { useNavigate } from 'react-router-dom'
 
-const UserProfileCreateProductBtn = () => {
-
-    const navigate = useNavigate();
+const UserProfileCreateProductBtn = ({setShowAddProduct}) => {
 
   return (
     <>
         <button
           className={style.UserProfileBtns}
-          onClick={() => navigate(`/createProduct`)}
+          onClick={() => setShowAddProduct(true)}
           >Add New Product
         </button>
     </>

@@ -1,11 +1,12 @@
 import logo from '../../assets/images/logo.webp'
 import style from './NavBar.module.css'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const NavBar = ({setShowLogin, setShowSignup}) => {
     const [navExpanded, setNavExpanded] = useState(false)
+    const navigate = useNavigate()
 
     const openNav = () => {
         setNavExpanded(!navExpanded)
@@ -28,7 +29,10 @@ const NavBar = ({setShowLogin, setShowSignup}) => {
                 >
                   <li>
                       <span  
-                          onClick={() => { closeNav() }}
+                          onClick={() => { 
+                            closeNav()
+                            navigate('/') 
+                        }}
                       >Home</span>
                   </li>
                   <li>

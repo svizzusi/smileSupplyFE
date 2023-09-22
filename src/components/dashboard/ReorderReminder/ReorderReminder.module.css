@@ -68,7 +68,7 @@
 }
 
 .ReorderReminderTableRowCard td:nth-child(8) {
-    background: #ea8888;
+    background: var(--rustmist);
 }
 
 .ReorderReminderTableRowCard td:nth-child(9) {

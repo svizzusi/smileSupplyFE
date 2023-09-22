@@ -4,6 +4,7 @@ import NavBar from './layout/NavBar/NavBar'
 import Home from "./views/Home"
 import Dashboard from "./views/Dashboard"
 import Footer from "./layout/footer/Footer"
+import ExistingProducts from "./views/ExistingProducts"
 
 function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -20,6 +21,10 @@ function App() {
         <Route
           path={'/dashboard'}
           element={<Dashboard />}
+        ></Route>
+        <Route
+          path={'/existing-projects'}
+          element={<ExistingProducts />}
         ></Route>
       </Routes>
       <Footer />
