@@ -4,7 +4,7 @@ import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai'
 import {useNavigate} from 'react-router-dom'
 
 
-const ReorderReminderCard = () => {
+const ReorderReminderCard = ({setShowEditProduct}) => {
 
   const navigate = useNavigate();
 
@@ -21,7 +21,9 @@ const ReorderReminderCard = () => {
           <span 
             onClick={() => navigate(`/updateproduct/${product._id}`)} 
             className={style.reorderReminderEditBtn}
-            ><AiOutlineEdit />
+            ><AiOutlineEdit 
+              onClick={() => setShowEditProduct(true)}
+            />
           </span>
         </td>
         <td>

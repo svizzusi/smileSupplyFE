@@ -1,18 +1,17 @@
-.existingProductsDashboardSection {
+.orderFormDashboardSection {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
 }
 
-.existingProductsSearchSection {
+.orderFormSearchSection {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 130px;
 }
 
-.existingProducts {
+.orderForm {
     width: 100%;
     max-width: fit-content;
     height: fit-content;

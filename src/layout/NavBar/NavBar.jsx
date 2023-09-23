@@ -45,6 +45,13 @@ const NavBar = ({setShowLogin, setShowSignup}) => {
                           onClick={() => { closeNav(), setShowSignup(true) }}
                       >Sign Up</span>
                   </li>
+                  <li>
+                      <span  
+                          onClick={() => { 
+                            navigate('/order-form') 
+                        }}
+                      >Cart</span>
+                  </li>
                 </ul>
                 <div 
                     className={navExpanded ? `${style['icon-three']} ${style['active-three']}` : style['icon-three']}

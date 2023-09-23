@@ -9,7 +9,7 @@ const UserProfileExistingProductsBtn = () => {
     <>
         <button
           className={style.UserProfileBtns}
-          onClick={() => navigate(`/updateProduct/${product._id}`)}
+          onClick={() => navigate(`/existing-products`)}
           >Existing Products
         </button>
     </>

@@ -36,8 +36,8 @@ function handleChange(e) {
         <div  
             className={style.addProductFormIconContainer}>
                 <RiCloseCircleFill 
-                onClick={() => setShowAddProduct(false)}
-                className={style.addProductFormIcon}
+                    onClick={() => setShowAddProduct(false)}
+                    className={style.addProductFormIcon}
                 />
         </div>
         <form

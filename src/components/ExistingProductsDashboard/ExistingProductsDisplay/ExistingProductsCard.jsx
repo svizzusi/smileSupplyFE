@@ -3,7 +3,7 @@ import { BsTrash } from 'react-icons/bs'
 import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai'
 import {useNavigate} from 'react-router-dom'
 
-const ExistingProductsCard = () => {
+const ExistingProductsCard = ({setShowEditProduct}) => {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +19,9 @@ const ExistingProductsCard = () => {
           <span 
             onClick={() => navigate(`/updateproduct/${product._id}`)} 
             className={style.existingProductsEditBtn}
-            ><AiOutlineEdit />
+            ><AiOutlineEdit
+              onClick={() => setShowEditProduct(true)}
+            />
           </span>
         </td>
         <td>

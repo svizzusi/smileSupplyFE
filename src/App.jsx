@@ -5,6 +5,7 @@ import Home from "./views/Home"
 import Dashboard from "./views/Dashboard"
 import Footer from "./layout/footer/Footer"
 import ExistingProductsPage from "./views/ExistingProductsPage"
+import OrderFormPage from "./views/OrderFormPage"
 
 function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -25,6 +26,10 @@ function App() {
         <Route
           path={'/existing-products'}
           element={<ExistingProductsPage />}
+        ></Route>
+        <Route
+          path={'/order-form'}
+          element={<OrderFormPage />}
         ></Route>
       </Routes>
       <Footer />

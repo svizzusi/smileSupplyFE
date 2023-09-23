@@ -9,7 +9,7 @@ const ExistingProductsSearch = () => {
   return (
     <div>
       <input
-      className={style.ExistingProductsSearchInput}
+      className={style.existingProductsSearchInput}
         type="text"
         placeholder="Search..."
         // onChange={handleChange}
