@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 
-const NavBar = ({setShowLogin, setShowSignup}) => {
+const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
     const [navExpanded, setNavExpanded] = useState(false)
     const navigate = useNavigate()
 
@@ -35,23 +35,23 @@ const NavBar = ({setShowLogin, setShowSignup}) => {
                         }}
                       >Home</span>
                   </li>
-                  <li>
-                      <span 
-                          onClick={() => { closeNav(), setShowLogin(true) }}
+                  {!signedIn && <li>
+                        <span 
+                          onClick={() => { closeNav(), setShowLogin(true), setShowSignup(false) }}
                       >Login</span>
-                  </li>
-                  <li>
-                      <span 
-                          onClick={() => { closeNav(), setShowSignup(true) }}
+                  </li>}
+                  {!signedIn && <li>
+                       <span 
+                          onClick={() => { closeNav(), setShowSignup(true), setShowLogin(false) }}
                       >Sign Up</span>
-                  </li>
-                  <li>
-                      <span  
+                  </li>}
+                  {signedIn && <li>
+                    <span  
                           onClick={() => { 
                             navigate('/order-form') 
                         }}
                       >Cart</span>
-                  </li>
+                  </li>}
                 </ul>
                 <div 
                     className={navExpanded ? `${style['icon-three']} ${style['active-three']}` : style['icon-three']}

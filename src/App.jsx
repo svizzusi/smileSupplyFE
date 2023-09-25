@@ -11,6 +11,7 @@ import SmallScreensPopup from "./components/home/SmallScreensPopup"
 function App() {
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)
+  const [signedIn, setSignedIn] = useState(false)
    
   // State to track the screen width
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -30,16 +31,16 @@ function App() {
 
   return (
     <>
-      <NavBar setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
+      <NavBar setShowLogin={setShowLogin} setShowSignup={setShowSignup} signedIn={signedIn}/>
       {screenWidth <= 480 && <SmallScreensPopup />}
       <Routes>
         <Route
           path={'/'}
-          element={<Home showLogin={showLogin} setShowLogin={setShowLogin} showSignup={showSignup} setShowSignup={setShowSignup}/>}
+          element={<Home showLogin={showLogin} setShowLogin={setShowLogin} showSignup={showSignup} setShowSignup={setShowSignup} setSignedIn={setSignedIn}/>}
         ></Route>
         <Route
           path={'/dashboard'}
-          element={<Dashboard />}
+          element={<Dashboard setSignedIn={setSignedIn} />}
         ></Route>
         <Route
           path={'/existing-products'}

@@ -1,6 +1,11 @@
 import UserProfile from '../components/dashboard/UserProfile'
+import {useEffect} from 'react'
 
-const Dashboard = () => {
+const Dashboard = ({setSignedIn}) => {
+
+  useEffect(() => {
+    setSignedIn(true);
+  }, [])
 
   return (
     <> 
