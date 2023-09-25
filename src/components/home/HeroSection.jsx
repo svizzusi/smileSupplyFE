@@ -2,6 +2,7 @@ import style from './HeroSection.module.css';
 import logo from "../../assets/images/logo.webp"
 
 const HeroSection = () => {
+  
   return (
     <section className={style.heroSection}>
         <img  className={style.heroImage} src={logo} alt="logo" />
