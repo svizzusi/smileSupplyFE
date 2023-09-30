@@ -1,14 +1,21 @@
 import style from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = ({showLogin, setShowLogin}) => {
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    window.sessionStorage.removeItem('userName')
+    window.sessionStorage.removeItem('userId')
+  }, [])
 
   // Use useState to manage form data
   const [formData, setFormData] = useState({
@@ -16,8 +23,7 @@ const Login = ({showLogin, setShowLogin}) => {
     password: '',
   });
 
-  const email = formData.email;
-  const password = formData.password;
+  const [loading, setLoading] = useState(false);
 
   function handleClose(e) {
     if (e.target.id === 'login') {
@@ -25,105 +31,137 @@ const Login = ({showLogin, setShowLogin}) => {
     }
   }
 
-  function handleChange(e) {
-    // Update form data based on input name
-    const { name, value } = e.target;
-    setFormData(prevFormData => {
-      return {
-        ...prevFormData,
-        [e.target.name]: e.target.value,
-      };
-    });
+  function handleEmailChange(e) {
+    // Update email in form data
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      email: e.target.value,
+    }));
+  }
+
+  function handlePasswordChange(e) {
+    // Update password in form data
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      password: e.target.value,
+    }));
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    // if (formData.password !== formData.confirmPassword) {
+    //   toast('Passwords did not match, Please retry')
+    //   setFormData((prevFormData) => ({
+    //     ...prevFormData,
+    //     password: '',
+    //     confirmPassword: '',
+    //   }));
+    //   return;
+    // }
+
+    setLoading(true);
+
+    const email = formData.email;
+    const password = formData.password;
+
     try {
-      const res = await axios.post('api url', { email, password });
+      const res = await axios.post('http://localhost:3000/users/login', {email, password});
       console.log(res);
       console.log(res.data);
       console.log(res.data.message)
       console.log(res.data.success)
       
       if (res.data.success === false) {
-        toast.error('Email and/or Password do not match, Try again', {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          });
+        toast(res.data.message)
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          password: ''
+        }));
       } else {
         window.sessionStorage.setItem('userName', res.data.userName)
         window.sessionStorage.setItem('userId', res.data.id)
+       
         setFormData((prevFormData) => ({
           ...prevFormData,
-          password: '',
-          confirmPassword: '',
+          password: ''
         }));
-        navigate('/dasboard');
-        // Redirect or show success message
+        navigate('/dashboard');
       }
+
+      setLoading(false);
 
     } catch (err) {
       console.error(err);
+      setLoading(false);
       // Handle error, show error message, etc.
     }
   };
   
 
   return (
-    <section 
-      className={style.loginFormSection}
-    >
-
-      <div className={style.loginFormIconContainer}>
-        <RiCloseCircleFill 
-          onClick={() => setShowLogin(false)}
-          className={style.loginFormIcon}
+    <>
+      <ToastContainer 
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
         />
-      </div>
-
-      <form 
-        onSubmit={handleSubmit}
-        className={style.loginForm}
+      <section 
+        className={style.loginFormSection}
       >
-        <div className={style.loginFormImage}>
-          <img src={logoSmall} alt="logo" />
-        </div>
-
-        <div className={style.loginFormInputs}>
-          <input
-            className={style.loginInput}
-            required
-            type="email"
-            placeholder='Email'
-            // value={email}
-            // onChange={e => setEmail(e.target.value)}
-          />
-
-          <input
-            className={style.loginInput}
-            required
-            type="password"
-            placeholder='Password'
-            // value={password}
-            // onChange={e => setPassword(e.target.value)}
-          />
-
-          <input
-            className={style.loginSubmit}
-            // disabled={!name || !email || !password || !confirmPassword}
-            type="submit"
-            value='Submit'
+        <div className={style.loginFormIconContainer}>
+          <RiCloseCircleFill 
+            onClick={() => setShowLogin(false)}
+            className={style.loginFormIcon}
           />
         </div>
-      </form>
-    </section>
+
+        <form 
+          onSubmit={handleSubmit}
+          className={style.loginForm}
+        >
+          <div className={style.loginFormImage}>
+            <img src={logoSmall} alt="logo" />
+          </div>
+          <div className={style.loginFormInputs}>
+            <input
+              className={style.loginInput}
+              required
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleEmailChange}
+            />
+            <input
+              className={style.loginInput}
+              required
+              type="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handlePasswordChange}
+            />
+            <button
+              className={style.loginSubmit}
+              disabled={
+                !formData.email || 
+                !formData.password
+              }
+              type="submit"
+              value="Submit"
+            >
+              {loading ? 'Logging in...' : 'Log In'}
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
   )
 };
 

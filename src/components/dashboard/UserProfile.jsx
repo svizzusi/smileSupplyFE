@@ -6,6 +6,8 @@ import ReorderReminder from './ReorderReminder/ReorderReminder';
 import AddProduct from './AddProduct/AddProduct';
 import EditProduct from './EditProduct/EditProduct';
 import {useState} from 'react'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -14,9 +16,28 @@ const UserProfile = () => {
   const [showAddProduct, setShowAddProduct] = useState(false)
   const [showEditProduct, setShowEditProduct] = useState(false)
 
+  const productCreatedToast = () => {
+    toast('Created product successfully')
+  }
+  const productNotCreatedToast = () => {
+    toast('Failed to create product')
+  }
   return (
     <section className={style.userProfileSection}>
-      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} />}
+       <ToastContainer 
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            style={{zIndex:200}}
+            />
+      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} productCreatedToast={productCreatedToast} productNotCreatedToast={productNotCreatedToast}/>}
       {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} />}
       <div className={style.userProfileTopSection}>
         <UserProfileWelcome />
