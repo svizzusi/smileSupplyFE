@@ -2,19 +2,49 @@ import style from './ExistingProducts.module.css'
 import { BsTrash } from 'react-icons/bs'
 import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai'
 import {useNavigate} from 'react-router-dom'
+import {useState, useEffect} from 'react'
+import axios from 'axios';
 
 const ExistingProductsCard = ({setShowEditProduct}) => {
   const navigate = useNavigate();
 
+  // State to store the Products
+  const [products, setProducts] = useState([]);
+
+  // State to store the User id
+  const [userId, setUserId] = useState();
+
+  // Fetch UserName from the server on component mount
+  useEffect(() => {
+    const id = window.sessionStorage.getItem('userId')
+    setUserId(id)
+}, [userId]);
+
+// Fetch products from the server on component mount
+useEffect(() => {
+  console.log("Fetching products for userId:", userId);
+  axios.get(`http://localhost:3000/products/getProducts/${userId}`)
+  .then(response => {
+  setProducts(response.data)
+  })
+  .catch(err => console.log(err))
+  
+  }, [userId]);
+  
+
   return (
     <tbody className={style.existingProductsTableBody}>
-      <tr className={style.existingProductsTableRowCard}>
-        <td>1</td>
-        <td>Lidocaine</td>
+      {products.map((product, index) => {
+        return (
+      <tr 
+        className={style.existingProductsTableRowCard} 
+        key={product._id}>
+        <td>{index}</td>
+        <td>{product.name}</td>
         <td>A1A739</td>
-        <td>$10.76</td>
-        <td>4</td>
-        <td>28 days</td>
+        <td>{product.price}</td>
+        <td>{product.quantity}</td>
+        <td>{product.frequency}</td>
         <td>
           <span 
             onClick={() => navigate(`/updateproduct/${product._id}`)} 
@@ -39,6 +69,8 @@ const ExistingProductsCard = ({setShowEditProduct}) => {
           </span>
         </td>
       </tr>
+        )
+      })}
     </tbody>
   )
 };

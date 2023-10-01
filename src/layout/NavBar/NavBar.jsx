@@ -30,8 +30,10 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                   <li>
                       <span  
                           onClick={() => { 
-                            closeNav()
-                            navigate('/') 
+                            closeNav(),
+                            navigate('/'),
+                            setShowSignup(false), 
+                            setShowLogin(false)
                         }}
                       >Home</span>
                   </li>
@@ -48,9 +50,25 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                   {signedIn && <li>
                     <span  
                           onClick={() => { 
+                            navigate('/dashboard') 
+                        }}
+                      >Dashboard</span>
+                  </li>}
+                  {signedIn && <li>
+                    <span  
+                          onClick={() => { 
                             navigate('/order-form') 
                         }}
                       >Cart</span>
+                  </li>}
+                  {signedIn && <li>
+                    <span  
+                          onClick={() => { 
+                            navigate('/'),
+                            setShowSignup(false), 
+                            setShowLogin(false)
+                        }}
+                      >Log Out</span>
                   </li>}
                 </ul>
                 <div 

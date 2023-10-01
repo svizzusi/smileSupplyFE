@@ -2,6 +2,7 @@ import style from './AddProduct.module.css'
 import {useState} from 'react'
 import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
+import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +14,12 @@ const AddProduct = ({setShowAddProduct, productCreatedToast, productNotCreatedTo
         quantity: '',
         frequency: ''
     });
+
+    const [showFrequency, setShowFrequency] = useState(true)
+
+    function toggleFrequency() {
+        setShowFrequency(!showFrequency)
+    }
 
     function handleClose(e) {
         if (e.target.id === 'addProduct') {
@@ -29,13 +36,24 @@ function handleChange(e) {
     })
 }
 
-const handleSubmit = async (e) => {
-    e.preventDefault()
+const checkFrequency = () => {
+    if (formData.frequency === '') {
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            frequency: '0'
+        }))
+    }
+}
 
+const handleSubmit = async (e) => {
+    checkFrequency()
+    e.preventDefault()
+    
     const name = formData.name
     const price = formData.price
     const quantity = formData.quantity
     const frequency = formData.frequency
+
 
     try {
         const res = await axios.post('http://localhost:3000/products/createProduct', {name, price, quantity, frequency})
@@ -59,7 +77,6 @@ const handleSubmit = async (e) => {
     } catch (err) {
         console.error(err)
     }
-
 }
 
   return (
@@ -111,22 +128,28 @@ const handleSubmit = async (e) => {
                     value={formData.quantity}
                     onChange={handleChange}
                 />
-                <input
+                {showFrequency && <input
                     className={style.addProductInput}
                     required
                     type='text'
                     name='frequency'
-                    placeholder='Product Frequency in Weeks'
+                    placeholder='Product Frequency (Weeks)'
                     value={formData.frequency}
                     onChange={handleChange}
-                />
+                />}
+                <div onClick={toggleFrequency} className={style.frequecyToggleContainer}>
+                    {showFrequency 
+                        ? <BsToggleOn className={style.frequencyToggleOn}/> 
+                        : <BsToggleOff className={style.frequencyToggleOff}/>
+                    }
+                    <span>Toggle off if product will not be reordered</span>
+                </div>
                 <input
                     className={style.addProductSubmit}
                     disabled={
                         !formData.name ||
                         !formData.price ||
-                        !formData.quantity ||
-                        !formData.frequency
+                        !formData.quantity 
                     }
                     type='submit'
                     value='Add Product'
