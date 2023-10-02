@@ -2,11 +2,13 @@ import style from './ReorderReminder.module.css'
 import { BsTrash } from 'react-icons/bs'
 import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai'
 import {useNavigate} from 'react-router-dom'
+import {useState} from 'react'
 
 
 const ReorderReminderCard = ({setShowEditProduct}) => {
 
   const navigate = useNavigate();
+  const [productId, setProductId] = useState()
 
   return (
     <tbody className={style.ReorderReminderTableBody}>
@@ -18,9 +20,7 @@ const ReorderReminderCard = ({setShowEditProduct}) => {
         <td>4</td>
         <td>28 days</td>
         <td>
-          <span 
-            onClick={() => navigate(`/updateproduct/${product._id}`)} 
-            className={style.reorderReminderEditBtn}
+          <span className={style.reorderReminderEditBtn}
             ><AiOutlineEdit 
               onClick={() => setShowEditProduct(true)}
             />
