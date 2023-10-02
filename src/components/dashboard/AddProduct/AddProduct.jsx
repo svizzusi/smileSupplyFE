@@ -1,5 +1,5 @@
 import style from './AddProduct.module.css'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
@@ -14,6 +14,13 @@ const AddProduct = ({setShowAddProduct, productCreatedToast, productNotCreatedTo
         quantity: '',
         frequency: ''
     });
+
+    const [userId, setUserId] = useState('');
+
+    useEffect(() => {
+        const id = window.sessionStorage.getItem('userId')
+        setUserId(id)
+      },[])
 
     const [showFrequency, setShowFrequency] = useState(true)
 
@@ -56,7 +63,7 @@ const handleSubmit = async (e) => {
 
 
     try {
-        const res = await axios.post('http://localhost:3000/products/createProduct', {name, price, quantity, frequency})
+        const res = await axios.post('http://localhost:3000/products/createProduct', {name, price, quantity, frequency, userId})
         console.log(res);
         console.log(res.data);
 

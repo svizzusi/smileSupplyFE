@@ -1,6 +1,6 @@
 import style from './ExistingProducts.module.css'
-import { BsTrash } from 'react-icons/bs'
-import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai'
+import {BsTrash} from 'react-icons/bs'
+import {AiOutlineEdit, AiOutlineShoppingCart} from 'react-icons/ai'
 import {useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import axios from 'axios';
@@ -17,19 +17,26 @@ const ExistingProductsCard = ({setShowEditProduct}) => {
   // Fetch UserName from the server on component mount
   useEffect(() => {
     const id = window.sessionStorage.getItem('userId')
+    console.log("UserId from sessionStorage:", id);
     setUserId(id)
-}, [userId]);
+}, []);
 
-// Fetch products from the server on component mount
-useEffect(() => {
-  console.log("Fetching products for userId:", userId);
-  axios.get(`http://localhost:3000/products/getProducts/${userId}`)
-  .then(response => {
-  setProducts(response.data)
-  })
-  .catch(err => console.log(err))
-  
-  }, [userId]);
+  // Fetch products from the server on component mount
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
+            console.log(response.data);
+            setProducts(response.data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    if (userId) {
+        fetchData();
+    }
+}, [userId]);
   
 
   return (
