@@ -12,6 +12,7 @@ function App() {
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)
   const [signedIn, setSignedIn] = useState(false)
+  const [productId, setProductId] = useState()
    
   // State to track the screen width
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -40,15 +41,15 @@ function App() {
         ></Route>
         <Route
           path={'/dashboard'}
-          element={<Dashboard setSignedIn={setSignedIn} />}
+          element={<Dashboard setSignedIn={setSignedIn} productId={productId} setProductId={setProductId}/>}
         ></Route>
         <Route
           path={'/existing-products'}
-          element={<ExistingProductsPage />}
+          element={<ExistingProductsPage productId={productId} setProductId={setProductId}/>}
         ></Route>
         <Route
           path={'/order-form'}
-          element={<OrderFormPage />}
+          element={<OrderFormPage productId={productId} setProductId={setProductId}/>}
         ></Route>
       </Routes>
       <Footer />

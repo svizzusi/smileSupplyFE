@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const UserProfile = () => {
+const UserProfile = ({productId, setProductId}) => {
 
   const [showAddProduct, setShowAddProduct] = useState(false)
   const [showEditProduct, setShowEditProduct] = useState(false)
@@ -38,7 +38,7 @@ const UserProfile = () => {
             style={{zIndex:200}}
             />
       {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} productCreatedToast={productCreatedToast} productNotCreatedToast={productNotCreatedToast}/>}
-      {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} />}
+      {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId}/>}
       <div className={style.userProfileTopSection}>
         <UserProfileWelcome />
         <div className={style.userProfileButtons}>
@@ -47,7 +47,7 @@ const UserProfile = () => {
         </div>
       </div>
       <section className={style.reorderReminder}>
-        <ReorderReminder setShowEditProduct={setShowEditProduct} />
+        <ReorderReminder setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId}/>
       </section>
     </section>
   )

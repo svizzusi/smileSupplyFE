@@ -4,22 +4,26 @@ import ExistingProducts from './ExistingProductsDisplay/ExistingProducts'
 import EditProduct from '../dashboard/EditProduct/EditProduct'
 import {useState} from 'react'
 
-const ExistingProductsDashboard = () => {
+const ExistingProductsDashboard = ({productId, setProductId}) => {
 
   const [showEditProduct, setShowEditProduct] = useState(false)
+  
 
   return (
-    <section className={style.existingProductsDashboardSection}>
-      {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} />}
-      <section className={style.existingProductsSearchSection}>
-        <ExistingProductsSearch />
+    <>
+      {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} productId={productId} />}
+      <section className={style.existingProductsDashboardSection}>
+        <section className={style.existingProductsSearchSection}>
+          <ExistingProductsSearch />
+        </section>
+        <section className={style.existingProducts}>
+          <ExistingProducts 
+            setShowEditProduct={setShowEditProduct}
+            setProductId={setProductId}
+          />
+        </section>
       </section>
-      <section className={style.existingProducts}>
-        <ExistingProducts 
-          setShowEditProduct={setShowEditProduct}
-        />
-      </section>
-    </section>
+    </>
   )
 };
 

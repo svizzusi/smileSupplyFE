@@ -2,8 +2,8 @@ import style from './ReorderReminder.module.css'
 
 const ReorderReminderHeader = () => {
   return (
-    <thead className={style.ReorderReminderTableHeader}>
-      <tr className={style.ReorderReminderTableRowHeader}>
+    <thead className={style.reorderReminderTableHeader}>
+      <tr className={style.reorderReminderTableRowHeader}>
         <th>#</th>
         <th>Product Name</th>
         <th>Product ID</th>

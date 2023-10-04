@@ -1,9 +1,9 @@
 import OrderFormDashBoard from "../components/OrderFormDashboard/OrderFormDashBoard";
 
-const OrderFormPage = () => {
+const OrderFormPage = (productId, setProductId) => {
   return (
     <>
-      <OrderFormDashBoard />
+      <OrderFormDashBoard productId={productId} setProductId={setProductId} />
     </>
   )
 };

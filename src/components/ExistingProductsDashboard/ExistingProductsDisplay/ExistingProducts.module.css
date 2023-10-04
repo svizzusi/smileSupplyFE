@@ -15,7 +15,7 @@
 
 .existingProductsTable {
     width: 100%;
-    margin: 20px;
+    /* margin: 20px; */
     border-collapse: separate;
     border-spacing: 0px 10px;
 }

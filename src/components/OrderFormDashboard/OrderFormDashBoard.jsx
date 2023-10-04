@@ -5,12 +5,12 @@ import {useState} from 'react'
 import EditProduct from '../dashboard/EditProduct/EditProduct'
 
 
-const OrderFormDashBoard = () => {
+const OrderFormDashBoard = (productId, setProductId) => {
 
   const [showEditProduct, setShowEditProduct] = useState(false)
     return (
       <section className={style.orderFormDashboardSection}>
-        {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} />}
+        {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId}/>}
         <section className={style.orderFormSearchSection}>
           <OrderFormSearch />
         </section>

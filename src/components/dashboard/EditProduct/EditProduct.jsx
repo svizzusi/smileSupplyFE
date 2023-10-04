@@ -1,15 +1,46 @@
 import style from './EditProduct.module.css'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
+import axios from 'axios'
+import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
 
-const EditProduct = ({setShowEditProduct}) => {
+const EditProduct = ({setShowEditProduct, productId}) => {
     const [formData, setFormData] = useState({
         name: '',
         price: '',
         quantity: '',
-        frequency: ''
+        frequency: ''  
     });
+
+    const [showFrequency, setShowFrequency] = useState(true)
+
+    function toggleFrequency() {
+        setShowFrequency(!showFrequency)
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                frequency: ''
+            }
+        })
+    }
+
+    // Fetch product information from the server
+  useEffect(() => {
+    axios.get(`http://localhost:3000/products/getProduct/${productId}`)
+      .then(res => {
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                name: res.data.name,
+                price: res.data.price,
+                quantity: res.data.quantity,
+                frequency: res.data.frequency,
+            }
+        })
+      })
+      .catch(err => console.log(err));
+  }, []);
 
     function handleClose(e) {
         if (e.target.id === 'editProduct') {
@@ -26,6 +57,23 @@ function handleChange(e) {
     })
 }
 
+  // Handle update product submission
+  const handleUpdate = (e) => {
+
+    const name = formData.name
+    const price = formData.price
+    const quantity = formData.quantity
+    const frequency = formData.frequency
+
+    e.preventDefault()
+    axios.put(`http://localhost:3000/products/updateProduct/${productId}`, {name, price, quantity, frequency})
+    .then( (res) => {
+      console.log(res)
+      location.reload();
+    } )
+    .catch(err => console.log(err)) 
+  }
+
   return (
     <section
         id='editProduct'
@@ -41,6 +89,7 @@ function handleChange(e) {
         </div>
         <form
             className={style.editProductForm}
+            onSubmit={handleUpdate} 
         >
             <div className={style.editProductFormImage}>
             <img src={logoSmall} alt="logo" />
@@ -73,22 +122,28 @@ function handleChange(e) {
                     value={formData.quantity}
                     onChange={handleChange}
                 />
-                <input
+                {showFrequency && <input
                     className={style.editProductInput}
                     required
                     type='text'
                     name='frequency'
-                    placeholder='Product Frequency'
+                    placeholder='Product Frequency (Weeks)'
                     value={formData.frequency}
                     onChange={handleChange}
-                />
+                />}
+                <div onClick={toggleFrequency} className={style.frequecyToggleContainer}>
+                    {showFrequency 
+                        ? <BsToggleOn className={style.frequencyToggleOn}/> 
+                        : <BsToggleOff className={style.frequencyToggleOff}/>
+                    }
+                    <span>Toggle off if product will not be reordered</span>
+                </div>
                 <input
                     className={style.editProductSubmit}
                     disabled={
                         !formData.name ||
                         !formData.price ||
-                        !formData.quantity ||
-                        !formData.frequency
+                        !formData.quantity 
                     }
                     type='submit'
                     value='Edit Product'

@@ -4,11 +4,8 @@ import {AiOutlineEdit, AiOutlineShoppingCart} from 'react-icons/ai'
 import {useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import axios from 'axios';
-import EditProduct from '../../dashboard/EditProduct/EditProduct'
 
-const ExistingProductsCard = () => {
-
-  const [showEditProduct, setShowEditProduct] = useState(false)
+const ExistingProductsCard = ({setShowEditProduct, setProductId}) => {
 
   const navigate = useNavigate();
 
@@ -29,9 +26,9 @@ const ExistingProductsCard = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
-            console.log(response.data);
-            setProducts(response.data);
+            const res = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
+            console.log(res.data);
+            setProducts(res.data);
         } catch (err) {
             console.log(err);
         }
@@ -54,7 +51,6 @@ const handleDelete = (id) => {
 
   return (
     <>
-      {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} />}
       <tbody className={style.existingProductsTableBody}>
         {products.map((product, index) => {
           return (
@@ -70,7 +66,10 @@ const handleDelete = (id) => {
           <td>
             <span className={style.existingProductsEditBtn}
               ><AiOutlineEdit
-                onClick={() => setShowEditProduct(true)}
+                onClick={() => {
+                  setShowEditProduct(true)
+                  setProductId(product._id)
+                }}
               />
             </span>
           </td>

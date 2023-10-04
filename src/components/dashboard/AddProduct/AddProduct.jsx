@@ -4,8 +4,6 @@ import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
 import axios from 'axios'
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const AddProduct = ({setShowAddProduct, productCreatedToast, productNotCreatedToast}) => {
     const [formData, setFormData] = useState({
@@ -77,6 +75,7 @@ const handleSubmit = async (e) => {
                 frequency: ''
               }))
               setShowAddProduct(false)
+              location.reload();
         } else {
             productNotCreatedToast()
         }  

@@ -64,6 +64,22 @@
     border-radius: var(--borderRadius);
 }
 
+.frequecyToggleContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.frequencyToggleOn {
+    font-size: 2.8rem;
+    color: var(--tan);
+}
+
+.frequencyToggleOff {
+    font-size: 2.8rem;
+    color: var(--red);
+}
+
 .editProductSubmit {
     width: 200px;
     padding: 10px 16px;

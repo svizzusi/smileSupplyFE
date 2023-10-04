@@ -1,10 +1,10 @@
 import ExistingProductsDashboard from "../components/ExistingProductsDashboard/ExistingProductsDashboard";
 
 
-const ExistingProductsPage = () => {
+const ExistingProductsPage = ({productId, setProductId}) => {
   return (
     <>
-      <ExistingProductsDashboard />
+      <ExistingProductsDashboard productId={productId} setProductId={setProductId} />
     </>
   )
 };
