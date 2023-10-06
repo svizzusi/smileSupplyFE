@@ -1,10 +1,16 @@
 import ExistingProductsDashboard from "../components/ExistingProductsDashboard/ExistingProductsDashboard";
+import {useEffect} from 'react'
 
+const ExistingProductsPage = ({productId, setProductId, setSignedIn, order, setOrder}) => {
 
-const ExistingProductsPage = ({productId, setProductId}) => {
+  useEffect(() => {
+    setSignedIn(true)
+  }, []);
+  
+
   return (
     <>
-      <ExistingProductsDashboard productId={productId} setProductId={setProductId} />
+      <ExistingProductsDashboard productId={productId} setProductId={setProductId} order={order} setOrder={setOrder}/>
     </>
   )
 };

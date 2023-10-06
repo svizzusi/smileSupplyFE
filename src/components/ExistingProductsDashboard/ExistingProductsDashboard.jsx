@@ -4,10 +4,9 @@ import ExistingProducts from './ExistingProductsDisplay/ExistingProducts'
 import EditProduct from '../dashboard/EditProduct/EditProduct'
 import {useState} from 'react'
 
-const ExistingProductsDashboard = ({productId, setProductId}) => {
+const ExistingProductsDashboard = ({productId, setProductId, order, setOrder}) => {
 
   const [showEditProduct, setShowEditProduct] = useState(false)
-  
 
   return (
     <>
@@ -20,6 +19,8 @@ const ExistingProductsDashboard = ({productId, setProductId}) => {
           <ExistingProducts 
             setShowEditProduct={setShowEditProduct}
             setProductId={setProductId}
+            order={order} 
+            setOrder={setOrder}
           />
         </section>
       </section>

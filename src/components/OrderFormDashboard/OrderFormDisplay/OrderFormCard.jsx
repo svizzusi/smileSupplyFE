@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom'
 
 import React from "react";
 
-const OrderFormCard = ({setShowEditProduct}) => {
+const OrderFormCard = ({setShowEditProduct, order, setOrder}) => {
 
     const navigate = useNavigate();
 

@@ -59,7 +59,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                           onClick={() => { 
                             navigate('/order-form') 
                         }}
-                      >Cart</span>
+                      >Order Form</span>
                   </li>}
                   {signedIn && <li>
                     <span  

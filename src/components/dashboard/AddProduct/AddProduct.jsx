@@ -10,7 +10,8 @@ const AddProduct = ({setShowAddProduct, productCreatedToast, productNotCreatedTo
         name: '',
         price: '',
         quantity: '',
-        frequency: ''
+        frequency: '',
+        order: false
     });
 
     const [userId, setUserId] = useState('');
@@ -58,10 +59,11 @@ const handleSubmit = async (e) => {
     const price = formData.price
     const quantity = formData.quantity
     const frequency = formData.frequency
+    const order = formData.order
 
 
     try {
-        const res = await axios.post('http://localhost:3000/products/createProduct', {name, price, quantity, frequency, userId})
+        const res = await axios.post('http://localhost:3000/products/createProduct', {name, price, quantity, frequency, userId, order})
         console.log(res);
         console.log(res.data);
 

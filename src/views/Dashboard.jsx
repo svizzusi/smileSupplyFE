@@ -1,7 +1,7 @@
 import UserProfile from '../components/dashboard/UserProfile'
 import {useEffect} from 'react'
 
-const Dashboard = ({setSignedIn, productId, setProductId}) => {
+const Dashboard = ({setSignedIn, productId, setProductId, order, setOrder}) => {
 
   useEffect(() => {
     setSignedIn(true);
@@ -9,7 +9,7 @@ const Dashboard = ({setSignedIn, productId, setProductId}) => {
 
   return (
     <> 
-      <UserProfile productId={productId} setProductId={setProductId}/>
+      <UserProfile productId={productId} setProductId={setProductId} order={order} setOrder={setOrder}/>
     </>
   )
 };

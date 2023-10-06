@@ -1,14 +1,12 @@
 import style from './ReorderReminder.module.css'
 import { BsTrash } from 'react-icons/bs'
 import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai'
-import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import {useState, useEffect} from 'react'
 
 
-const ReorderReminderCard = ({setShowEditProduct, productId, setProductId}) => {
+const ReorderReminderCard = ({setShowEditProduct, productId, setProductId, order, setOrder}) => {
 
-  const navigate = useNavigate();
 
    // State to store the Products
    const [products, setProducts] = useState([]);
@@ -49,6 +47,15 @@ const ReorderReminderCard = ({setShowEditProduct, productId, setProductId}) => {
         .catch((err) => console.log(err));
   };
 
+  const addToOrder = (id) => {
+    setOrder(true)
+    axios.put(`http://localhost:3000/products/orderProduct/${id}`, {order: true})
+    .then( (res) => {
+      console.log(res)
+    } )
+    .catch(err => console.log(err)) 
+  }
+
   return (
     <tbody className={style.reorderReminderTableBody}>
       {products.filter(product => product.frequency !== '').map((product, index) => {
@@ -81,7 +88,10 @@ const ReorderReminderCard = ({setShowEditProduct, productId, setProductId}) => {
           </td>
           <td>
           <span 
-              onClick={() => navigate(`/cart`)} 
+              onClick={() => {
+                addToOrder(product._id)
+                
+              }} 
               className={style.reorderReminderCartBtn}
               ><AiOutlineShoppingCart />
             </span>

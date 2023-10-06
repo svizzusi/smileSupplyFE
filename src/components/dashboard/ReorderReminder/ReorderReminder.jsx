@@ -2,14 +2,14 @@ import style from './ReorderReminder.module.css'
 import ReorderReminderHeader from './ReorderReminderHeader';
 import ReorderReminderCard from './ReorderReminderCard';
 
-const ReorderReminder = ({setShowEditProduct, productId, setProductId}) => {
+const ReorderReminder = ({setShowEditProduct, productId, setProductId, order, setOrder}) => {
 
   return (
     <section className={style.reorderReminderSection}>
         <h2 className={style.reorderReminderHeading}>Inventory Reorder Reminder</h2>
         <table className={style.reorderReminderTable}>
           <ReorderReminderHeader />
-          <ReorderReminderCard setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId} />
+          <ReorderReminderCard setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder}/>
         </table>
     </section>
   )

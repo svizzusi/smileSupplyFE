@@ -5,7 +5,7 @@ import {useState} from 'react'
 import EditProduct from '../dashboard/EditProduct/EditProduct'
 
 
-const OrderFormDashBoard = (productId, setProductId) => {
+const OrderFormDashBoard = (productId, setProductId, order, setOrder) => {
 
   const [showEditProduct, setShowEditProduct] = useState(false)
     return (
@@ -15,7 +15,7 @@ const OrderFormDashBoard = (productId, setProductId) => {
           <OrderFormSearch />
         </section>
         <section className={style.orderForm}>
-          <OrderForm setShowEditProduct={setShowEditProduct} />
+          <OrderForm setShowEditProduct={setShowEditProduct} order={order} setOrder={setOrder} />
         </section>    
       </section>    
       )

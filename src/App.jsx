@@ -8,11 +8,13 @@ import ExistingProductsPage from "./views/ExistingProductsPage"
 import OrderFormPage from "./views/OrderFormPage"
 import SmallScreensPopup from "./components/home/SmallScreensPopup"
 
+
 function App() {
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)
   const [signedIn, setSignedIn] = useState(false)
   const [productId, setProductId] = useState()
+  const [order, setOrder] = useState(false)
    
   // State to track the screen width
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -32,7 +34,7 @@ function App() {
 
   return (
     <>
-      <NavBar setShowLogin={setShowLogin} setShowSignup={setShowSignup} signedIn={signedIn}/>
+      <NavBar signedIn={signedIn} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
       {screenWidth <= 480 && <SmallScreensPopup />}
       <Routes>
         <Route
@@ -41,15 +43,15 @@ function App() {
         ></Route>
         <Route
           path={'/dashboard'}
-          element={<Dashboard setSignedIn={setSignedIn} productId={productId} setProductId={setProductId}/>}
+          element={<Dashboard setSignedIn={setSignedIn} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder}/>}
         ></Route>
         <Route
           path={'/existing-products'}
-          element={<ExistingProductsPage productId={productId} setProductId={setProductId}/>}
+          element={<ExistingProductsPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn} order={order} setOrder={setOrder}/>}
         ></Route>
         <Route
           path={'/order-form'}
-          element={<OrderFormPage productId={productId} setProductId={setProductId}/>}
+          element={<OrderFormPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn}  order={order} setOrder={setOrder}/>}
         ></Route>
       </Routes>
       <Footer />

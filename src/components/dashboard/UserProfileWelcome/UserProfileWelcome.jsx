@@ -1,10 +1,17 @@
 import style from './UserProfileWelcome.module.css'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 const UserProfileWelcome = () => {
 
     // State to store the User name
-    const [userName, setUserName] = useState('David');
+    const [userName, setUserName] = useState('');
+
+      // Fetch UserName from the server on component mount
+  useEffect(() => {
+    const userName = window.sessionStorage.getItem('userName')
+    console.log("UserName from sessionStorage:", userName);
+    setUserName(userName)
+}, []);
 
   return (
     <>
