@@ -5,7 +5,7 @@ import {useState} from 'react'
 import EditProduct from '../dashboard/EditProduct/EditProduct'
 
 
-const OrderFormDashBoard = (productId, setProductId, order, setOrder) => {
+const OrderFormDashBoard = ({productId, setProductId, order, setOrder}) => {
 
   const [showEditProduct, setShowEditProduct] = useState(false)
     return (

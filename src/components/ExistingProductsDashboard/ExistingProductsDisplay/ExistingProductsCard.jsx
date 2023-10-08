@@ -55,7 +55,6 @@ const addToOrder = (id) => {
   .catch(err => console.log(err)) 
 }
   
-
   return (
     <>
       <tbody className={style.existingProductsTableBody}>
@@ -90,8 +89,7 @@ const addToOrder = (id) => {
           <td>
           <span 
               onClick={() => {
-                addToOrder(product._id)
-                
+                addToOrder(product._id)    
               }} 
               className={style.existingProductsCartBtn}
               ><AiOutlineShoppingCart />

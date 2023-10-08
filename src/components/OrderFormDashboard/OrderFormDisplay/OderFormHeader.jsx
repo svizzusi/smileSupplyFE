@@ -11,7 +11,7 @@ const OderFormHeader = () => {
             <th>Product Quantity</th>
             <th>Order Frequency</th>
             <th>Edit Order</th>
-            <th>Delete Order</th>
+            <th>Remove Product</th>
           </tr>
         </thead>
       )

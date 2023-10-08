@@ -37,20 +37,19 @@ useEffect(() => {
   }
 }, [userId]);
 
-const handleDelete = (id) => {
-  axios.delete(`http://localhost:3000/products/deleteProduct/${id}`)
-      .then(() => {
-          // Remove the deleted product from the local state
-          setProducts((prevProducts) => prevProducts.filter((product) => product._id !== id));
-      })
-      .catch((err) => console.log(err));
-};
-
-
+const removeFromOrder = (id) => {
+  setOrder(false)
+  axios.put(`http://localhost:3000/products/orderProduct/${id}`, {order: false})
+  .then( (res) => {
+    console.log(res)
+  } )
+  .catch(err => console.log(err))
+  location.reload()
+}
 
 return (
   <tbody className={style.orderFormTableBody}>
-    {products.filter(product => product.frequency !== '').map((product, index) => {
+    {products.filter(product => product.order !== false).map((product, index) => {
         return (
       <tr 
         className={style.orderFormTableRowCard} 
@@ -73,7 +72,9 @@ return (
         </td>
         <td>
           <span 
-            onClick={() => handleDelete(product._id)}
+            onClick={() => {
+              removeFromOrder(product._id)    
+            }} 
             className={style.orderFormDeleteBtn}
             ><BsTrash />
           </span>
