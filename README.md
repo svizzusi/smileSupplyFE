@@ -5,6 +5,7 @@ Welcome to Smile Supply, the all-in-one web application designed to simplify den
 ## Table of Contents
 
 - [Features](#features)
+- [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Customizable Ordering](#customizable-ordering)
@@ -23,6 +24,13 @@ Welcome to Smile Supply, the all-in-one web application designed to simplify den
 - **Customizable Algorithm**: Smile Supply employs a customizable algorithm for each product, tailoring the ordering frequency to individual product usage and needs.
 
 - **Reduction in Spoilage**: By ordering based on product-specific usage and expiration dates, Smile Supply minimizes spoilage, saving both money and storage space.
+
+## Installation
+
+1. Clone the repo onto your local machine.
+2. Enter `npm install` to download and install the dependencies.
+3. Enter `npm run dev` to run the local server.
+4. Access the site using the URL provided: `http://localhost:5173/`.
 
 ## Getting Started
 
