@@ -10,7 +10,6 @@ Welcome to Smile Supply, the all-in-one web application designed to simplify den
 - [Usage](#usage)
 - [Customizable Ordering](#customizable-ordering)
 - [Benefits](#benefits)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -36,11 +35,11 @@ Welcome to Smile Supply, the all-in-one web application designed to simplify den
 
 To get started with Smile Supply, follow these simple steps:
 
-1. **Create an Account**: Dental auxiliaries can create a Smile Supply account by visiting [https://www.smilesupply.com/signup](https://www.smilesupply.com/signup).
+1. **Create an Account**: Dental auxiliaries can create a Smile Supply account by visiting [https://www.smilesupply.net](https://www.smilesupply.net).
 
-2. **Log In**: Once your account is created, log in to access your profile and start managing your dental supplies.
+2. **Sign Up**: Once your account is created, log in to access your profile and start managing your dental supplies.
 
-3. **Explore Your Profile**: Inside your profile, you'll find information about your current supplies, order history, and low inventory alerts.
+3. **Explore Your Profile**: Inside your profile, you'll find information about your current inventory, order history, and low inventory alerts.
 
 ## Usage
 
@@ -74,15 +73,11 @@ Smile Supply offers several benefits to dental auxiliaries:
 
 - **Improved Budgeting**: Better budgeting with accurate supply management.
 
-## Contributing
-
-We welcome contributions from the dental community to make Smile Supply even better. If you'd like to contribute to our project, please follow our [Contribution Guidelines](CONTRIBUTING.md).
-
 ## License
 
 Smile Supply is licensed under the [MIT License](LICENSE).
 
 ---
 
-For any questions or support, please contact our team at [support@smilesupply.com](mailto:support@smilesupply.com). Thank you for choosing Smile Supply to streamline your dental supply management!
+For any questions or support, please contact our team at [support@smilesupply.net](mailto:support@smilesupply.net). Thank you for choosing Smile Supply to streamline your dental supply management!
 
