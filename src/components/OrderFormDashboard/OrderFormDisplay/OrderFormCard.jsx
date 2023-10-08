@@ -1,42 +1,88 @@
 import style from './OrderForm.module.css'
 import {BsTrash} from 'react-icons/bs'
 import {AiOutlineEdit} from 'react-icons/ai'
-import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
+import {useState, useEffect} from 'react'
 
-import React from "react";
 
-const OrderFormCard = ({setShowEditProduct, order, setOrder}) => {
+const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder}) => {
+  
+  // State to store the Products
+   const [products, setProducts] = useState([]);
 
-    const navigate = useNavigate();
+   // State to store the User id
+   const [userId, setUserId] = useState();
 
-    return (
-        <tbody className={style.orderFormTableBody}>
-          <tr className={style.orderFormTableRowCard}>
-            <td>1</td>
-            <td>Lidocaine</td>
-            <td>A1A739</td>
-            <td>$10.76</td>
-            <td>4</td>
-            <td>28 days</td>
-            <td>
-              <span 
-                onClick={() => navigate(`/updateproduct/${product._id}`)} 
-                className={style.orderFormEditBtn}
-                ><AiOutlineEdit 
-                  onClick={() => setShowEditProduct(true)}
-                />
-              </span>
-            </td>
-            <td>
-              <span 
-                onClick={() => handleDelete(product._id)}
-                className={style.orderFormDeleteBtn}
-                ><BsTrash />
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      )
-    };
+   // Fetch UserName from the server on component mount
+   useEffect(() => {
+    const id = window.sessionStorage.getItem('userId')
+    console.log("UserId from sessionStorage:", id);
+    setUserId(id)
+  }, []);
+
+// Fetch products from the server on component mount
+useEffect(() => {
+  const fetchData = async () => {
+      try {
+          const res = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
+          console.log(res.data);
+          setProducts(res.data);
+      } catch (err) {
+          console.log(err);
+      }
+  };
+
+  if (userId) {
+      fetchData();
+  }
+}, [userId]);
+
+const handleDelete = (id) => {
+  axios.delete(`http://localhost:3000/products/deleteProduct/${id}`)
+      .then(() => {
+          // Remove the deleted product from the local state
+          setProducts((prevProducts) => prevProducts.filter((product) => product._id !== id));
+      })
+      .catch((err) => console.log(err));
+};
+
+
+
+return (
+  <tbody className={style.orderFormTableBody}>
+    {products.filter(product => product.frequency !== '').map((product, index) => {
+        return (
+      <tr 
+        className={style.orderFormTableRowCard} 
+        key={product._id}>
+        <td>{index +1}</td>
+        <td>{product.name}</td>
+        <td>{product.productId}</td>
+        <td>${product.price}</td>
+        <td>{product.quantity}</td>
+        <td>{product.frequency === '' ? 'Non-Recurring' : product.frequency}</td>
+        <td>
+          <span className={style.orderFormEditBtn}
+            ><AiOutlineEdit
+              onClick={() => {
+                setShowEditProduct(true)
+                setProductId(product._id)
+              }}
+            />
+          </span>
+        </td>
+        <td>
+          <span 
+            onClick={() => handleDelete(product._id)}
+            className={style.orderFormDeleteBtn}
+            ><BsTrash />
+          </span>
+        </td>
+      </tr>
+        )
+      })}
+  </tbody>
+)
+};
 
 export default OrderFormCard;

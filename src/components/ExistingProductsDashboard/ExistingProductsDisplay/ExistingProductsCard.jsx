@@ -66,8 +66,8 @@ const addToOrder = (id) => {
           key={product._id}>
           <td>{index +1}</td>
           <td>{product.name}</td>
-          <td>{product._id.slice(-5)}</td>
-          <td>{product.price}</td>
+          <td>{product.productId}</td>
+          <td>${product.price}</td>
           <td>{product.quantity}</td>
           <td>{product.frequency === '' ? 'Non-Recurring' : product.frequency}</td>
           <td>

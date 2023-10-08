@@ -8,6 +8,7 @@ import axios from 'axios'
 const AddProduct = ({setShowAddProduct, productCreatedToast, productNotCreatedToast}) => {
     const [formData, setFormData] = useState({
         name: '',
+        productId: '',
         price: '',
         quantity: '',
         frequency: '',
@@ -56,6 +57,7 @@ const handleSubmit = async (e) => {
     e.preventDefault()
     
     const name = formData.name
+    const productId = formData.productId
     const price = formData.price
     const quantity = formData.quantity
     const frequency = formData.frequency
@@ -63,7 +65,7 @@ const handleSubmit = async (e) => {
 
 
     try {
-        const res = await axios.post('http://localhost:3000/products/createProduct', {name, price, quantity, frequency, userId, order})
+        const res = await axios.post('http://localhost:3000/products/createProduct', {name, productId, price, quantity, frequency, userId, order})
         console.log(res);
         console.log(res.data);
 
@@ -72,6 +74,7 @@ const handleSubmit = async (e) => {
             setFormData((prevFormData) => ({
                 ...prevFormData,
                 name: '',
+                productId: '',
                 price: '',
                 quantity: '',
                 frequency: ''
@@ -122,6 +125,15 @@ const handleSubmit = async (e) => {
                     className={style.addProductInput}
                     required
                     type='text'
+                    name='productId'
+                    placeholder='Product Id'
+                    value={formData.productId}
+                    onChange={handleChange}
+                />
+                <input
+                    className={style.addProductInput}
+                    required
+                    type='text'
                     name='price'
                     placeholder='Product Price'
                     value={formData.price}
@@ -156,6 +168,7 @@ const handleSubmit = async (e) => {
                     className={style.addProductSubmit}
                     disabled={
                         !formData.name ||
+                        !formData.productId ||
                         !formData.price ||
                         !formData.quantity 
                     }

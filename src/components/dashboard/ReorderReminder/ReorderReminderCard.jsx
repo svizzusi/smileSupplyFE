@@ -5,7 +5,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react'
 
 
-const ReorderReminderCard = ({setShowEditProduct, productId, setProductId, order, setOrder}) => {
+const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder}) => {
 
 
    // State to store the Products
@@ -65,8 +65,8 @@ const ReorderReminderCard = ({setShowEditProduct, productId, setProductId, order
           key={product._id}>
           <td>{index +1}</td>
           <td>{product.name}</td>
-          <td>{product._id.slice(-5)}</td>
-          <td>{product.price}</td>
+          <td>{product.productId}</td>
+          <td>${product.price}</td>
           <td>{product.quantity}</td>
           <td>{product.frequency === '' ? 'Non-Recurring' : product.frequency}</td>
           <td>
