@@ -4,7 +4,7 @@ import {AiOutlineEdit, AiOutlineShoppingCart} from 'react-icons/ai'
 import {useState, useEffect} from 'react'
 import axios from 'axios';
 
-const ExistingProductsCard = ({setShowEditProduct, setProductId, order, setOrder}) => {
+const ExistingProductsCard = ({setShowEditProduct, setProductId, order, setOrder, toast}) => {
 
 
   // State to store the Products
@@ -44,6 +44,19 @@ const handleDelete = (id) => {
           setProducts((prevProducts) => prevProducts.filter((product) => product._id !== id));
       })
       .catch((err) => console.log(err));
+      toast.success('Successfully deleted product', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+        setTimeout(() => {
+          location.reload()
+        }, 3000)
 };
 
 const addToOrder = (id) => {
@@ -52,7 +65,20 @@ const addToOrder = (id) => {
   .then( (res) => {
     console.log(res)
   } )
-  .catch(err => console.log(err)) 
+  .catch(err => console.log(err))
+  toast.success('Successfully added product to order form', {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
+    setTimeout(() => {
+      location.reload()
+    }, 3000) 
 }
   
   return (

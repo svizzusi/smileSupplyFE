@@ -1,7 +1,7 @@
 import OrderFormDashBoard from "../components/OrderFormDashboard/OrderFormDashBoard";
 import {useEffect} from 'react'
 
-const OrderFormPage = ({productId, setProductId, setSignedIn, order, setOrder}) => {
+const OrderFormPage = ({productId, setProductId, setSignedIn, order, setOrder, toast}) => {
 
   useEffect(() => {
     setSignedIn(true)
@@ -9,7 +9,7 @@ const OrderFormPage = ({productId, setProductId, setSignedIn, order, setOrder}) 
 
   return (
     <>
-      <OrderFormDashBoard productId={productId} setProductId={setProductId} order={order} setOrder={setOrder}/>
+      <OrderFormDashBoard productId={productId} setProductId={setProductId} order={order} setOrder={setOrder} toast={toast}/>
     </>
   )
 };

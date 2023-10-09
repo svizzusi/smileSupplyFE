@@ -7,6 +7,8 @@ import Footer from "./layout/footer/Footer"
 import ExistingProductsPage from "./views/ExistingProductsPage"
 import OrderFormPage from "./views/OrderFormPage"
 import SmallScreensPopup from "./components/home/SmallScreensPopup"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
     <>
       <NavBar signedIn={signedIn} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
       {screenWidth <= 480 && <SmallScreensPopup />}
+      <ToastContainer />
       <Routes>
         <Route
           path={'/'}
@@ -43,15 +46,15 @@ function App() {
         ></Route>
         <Route
           path={'/dashboard'}
-          element={<Dashboard setSignedIn={setSignedIn} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder}/>}
+          element={<Dashboard setSignedIn={setSignedIn} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder} toast={toast}/>}
         ></Route>
         <Route
           path={'/existing-products'}
-          element={<ExistingProductsPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn} order={order} setOrder={setOrder}/>}
+          element={<ExistingProductsPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn} order={order} setOrder={setOrder} toast={toast}/>}
         ></Route>
         <Route
           path={'/order-form'}
-          element={<OrderFormPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn}  order={order} setOrder={setOrder}/>}
+          element={<OrderFormPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn}  order={order} setOrder={setOrder} toast={toast}/>}
         ></Route>
       </Routes>
       <Footer />

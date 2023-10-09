@@ -5,7 +5,7 @@ import {RiCloseCircleFill} from 'react-icons/ri'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
 import axios from 'axios'
 
-const AddProduct = ({setShowAddProduct, productCreatedToast, productNotCreatedToast}) => {
+const AddProduct = ({setShowAddProduct, toast}) => {
     const [formData, setFormData] = useState({
         name: '',
         productId: '',
@@ -70,7 +70,6 @@ const handleSubmit = async (e) => {
         console.log(res.data);
 
         if (res.request.status === 200) {
-            productCreatedToast()
             setFormData((prevFormData) => ({
                 ...prevFormData,
                 name: '',
@@ -80,9 +79,33 @@ const handleSubmit = async (e) => {
                 frequency: ''
               }))
               setShowAddProduct(false)
-              location.reload();
+              toast.success('Successfully added product', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+                setTimeout(() => {
+                  location.reload()
+                }, 3000)
         } else {
-            productNotCreatedToast()
+            toast.success('Error adding product', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+                setTimeout(() => {
+                  location.reload()
+                }, 3000)
         }  
 
     } catch (err) {

@@ -5,7 +5,7 @@ import {RiCloseCircleFill} from 'react-icons/ri'
 import axios from 'axios'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
 
-const EditProduct = ({setShowEditProduct, productId}) => {
+const EditProduct = ({setShowEditProduct, productId, toast}) => {
     const [formData, setFormData] = useState({
         name: '',
         price: '',
@@ -69,9 +69,21 @@ function handleChange(e) {
     axios.put(`http://localhost:3000/products/updateProduct/${productId}`, {name, price, quantity, frequency})
     .then( (res) => {
       console.log(res)
-      location.reload();
     } )
     .catch(err => console.log(err)) 
+    toast.success('Successfully edited product', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+        setTimeout(() => {
+          location.reload()
+        }, 3000)
   }
 
   return (

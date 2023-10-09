@@ -5,7 +5,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react'
 
 
-const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder}) => {
+const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder, toast}) => {
 
 
    // State to store the Products
@@ -45,6 +45,19 @@ const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder}
             setProducts((prevProducts) => prevProducts.filter((product) => product._id !== id));
         })
         .catch((err) => console.log(err));
+        toast.success('Successfully deleted product', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+          setTimeout(() => {
+            location.reload()
+          }, 3000)
   };
 
   const addToOrder = (id) => {
@@ -54,6 +67,19 @@ const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder}
       console.log(res)
     } )
     .catch(err => console.log(err)) 
+    toast.success('Successfully added product to order form', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+      setTimeout(() => {
+        location.reload()
+      }, 3000) 
   }
 
   return (

@@ -11,34 +11,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const UserProfile = ({productId, setProductId, order, setOrder}) => {
+const UserProfile = ({productId, setProductId, order, setOrder, toast}) => {
 
   const [showAddProduct, setShowAddProduct] = useState(false)
   const [showEditProduct, setShowEditProduct] = useState(false)
 
-  const productCreatedToast = () => {
-    toast('Created product successfully')
-  }
-  const productNotCreatedToast = () => {
-    toast('Failed to create product')
-  }
   return (
     <section className={style.userProfileSection}>
-       <ToastContainer 
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-            style={{zIndex:200}}
-            />
-      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} productCreatedToast={productCreatedToast} productNotCreatedToast={productNotCreatedToast}/>}
-      {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId}/>}
+      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} toast={toast}/>}
+      {showEditProduct && <EditProduct setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId} toast={toast}/>}
       <div className={style.userProfileTopSection}>
         <UserProfileWelcome />
         <div className={style.userProfileButtons}>
@@ -47,7 +28,7 @@ const UserProfile = ({productId, setProductId, order, setOrder}) => {
         </div>
       </div>
       <section className={style.reorderReminder}>
-        <ReorderReminder setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder}/>
+        <ReorderReminder setShowEditProduct={setShowEditProduct} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder} toast={toast}/>
       </section>
     </section>
   )
