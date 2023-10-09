@@ -41,7 +41,8 @@ To get started with Smile Supply, follow these simple steps:
 
 1. **Create an Account**: Dental auxiliaries can create a Smile Supply account by visiting [https://www.smilesupply.net](https://www.smilesupply.net).
 
-   ![Signup](https://github.com/svizzusi/smileSupplyFE/assets/121833017/ed13973a-657d-4a71-be07-461be7fcee43)
+  ![Signup](https://github.com/svizzusi/smileSupplyFE/assets/121833017/bffa76ea-32c4-4371-87d8-76d2a37c02da)
+
 
 2. **Sign Up**: Once your account is created, log in to access your profile and start managing your dental supplies. (Test account for sign-up: Email: test@test.com Password: testtest)
 
