@@ -1,3 +1,7 @@
+
+![HomeScreen](https://github.com/svizzusi/smileSupplyFE/assets/121833017/37784656-e1b6-4fbf-9249-93ad8f304876)
+
+
 # Smile Supply - Dental Supply Management Web Application
 
 Welcome to Smile Supply, the all-in-one web application designed to simplify dental material supply management for dental auxiliaries. Smile Supply helps dental professionals keep track of their dental supplies efficiently, ensuring that their office always has the right amount of products in stock while minimizing spoilage and saving on storage costs.
@@ -36,8 +40,10 @@ Welcome to Smile Supply, the all-in-one web application designed to simplify den
 To get started with Smile Supply, follow these simple steps:
 
 1. **Create an Account**: Dental auxiliaries can create a Smile Supply account by visiting [https://www.smilesupply.net](https://www.smilesupply.net).
+![Signup](https://github.com/svizzusi/smileSupplyFE/assets/121833017/ed13973a-657d-4a71-be07-461be7fcee43)
 
-2. **Sign Up**: Once your account is created, log in to access your profile and start managing your dental supplies.
+2. **Sign Up**: Once your account is created, log in to access your profile and start managing your dental supplies. (Test account for sign-up : email: test@test.com  Password: testtest)
+![Login](https://github.com/svizzusi/smileSupplyFE/assets/121833017/1b7c0eb1-3ca0-4541-950a-822b3ae8a0e6)
 
 3. **Explore Your Profile**: Inside your profile, you'll find information about your current inventory, order history, and low inventory alerts.
 
