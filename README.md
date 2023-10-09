@@ -62,8 +62,6 @@ To get started with Smile Supply, follow these simple steps:
 
 4. **Existing Products Page (Accessed from the Existing Products button on the dashboard)**: This is a hub for all the products that you have ever ordered, even those that do not have a frequency to reorder. This page keeps track of your current inventory and allows you to access product information, price, and quantity of items. The user-friendly interface allows you to easily add items directly to the order form with a click of the "shopping cart" icon.
 
-   ![Existing products](https://github.com/svizzusi/smileSupplyFE/assets/121833017/4f876883-70d0-42a5-81bf-4dad9cc5d92b)
-
    ![Add to order form](https://github.com/svizzusi/smileSupplyFE/assets/121833017/91fbb41b-b003-41b7-b4c2-fbd8c538dbb9)
 
 5. **Order Form Page**: This page contains all of the items that you have added to your virtual "shopping cart" from either the reorder reminder section on the dashboard or on the existing products page. This page totals up the current costs of all items added so that you can make sure that your order is within budget. With a simple click on the product ID number, the information is stored on the clipboard where it can easily be pasted into your supplier website.
