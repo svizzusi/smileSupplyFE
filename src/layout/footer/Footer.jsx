@@ -9,13 +9,21 @@ const Footer = () => {
       <footer className={style.footer}>
         <span className={style.footerLogo}>Smile Supply</span>
         <div className={style.footerLinks}>
-          <Link>About Us</Link>
-          <Link>Terms of Service</Link>
-          <Link>Privacy Policy</Link>
+          <Link to={'/about'}>About Us</Link>
+          <Link to={'/terms'}>Terms of Service</Link>
+          <Link to={'/privacy'}>Privacy Policy</Link>
         </div>
         <div className={style.footerSocials}>
-          <RiTwitterXFill className={style.footerSocialsLinks}/>
-          <FaLinkedinIn className={style.footerSocialsLinks}/>
+        <a 
+            href='https://twitter.com/StephenVizzusi' 
+            target="_blank">
+              <RiTwitterXFill className={style.footerSocialsLinks}/>
+          </a>
+          <a 
+            href='https://www.linkedin.com/in/stephen-vizzusi/' 
+            target="_blank">
+              <FaLinkedinIn className={style.footerSocialsLinks}/>
+          </a>
         </div>
       </footer>
     </div>

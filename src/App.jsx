@@ -10,6 +10,9 @@ import SmallScreensPopup from "./components/home/SmallScreensPopup"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Tooltip} from 'react-tooltip'
+import TermsPage from "./views/TermsPage"
+import PrivacyPage from "./views/PrivacyPage"
+import AboutPage from "./views/AboutPage"
 
 function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -56,6 +59,18 @@ function App() {
         <Route
           path={'/order-form'}
           element={<OrderFormPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn}  order={order} setOrder={setOrder} toast={toast}/>}
+        ></Route>
+        <Route
+          path={'/about'}
+          element={<AboutPage />}
+        ></Route>
+        <Route
+          path={'/terms'}
+          element={<TermsPage />}
+        ></Route>
+        <Route
+          path={'/privacy'}
+          element={<PrivacyPage />}
         ></Route>
       </Routes>
       <Footer />
