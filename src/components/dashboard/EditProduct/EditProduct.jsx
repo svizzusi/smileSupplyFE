@@ -27,7 +27,7 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
 
     // Fetch product information from the server
   useEffect(() => {
-    axios.get(`http://localhost:3000/products/getProduct/${productId}`)
+    axios.get(`https://inquisitive-ray-jersey.cyclic.cloud/products/getProduct/${productId}`)
       .then(res => {
         setFormData(prevFormData => {
             return {
@@ -47,15 +47,16 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
             setShowEditProduct(false);
         }
     }
-function handleChange(e) {
-    const {name, value} = e.target;
-    setFormData(prevFormData => {
-        return {
-            ...prevFormData,
-            [e.target.name]: e.target.value,
-        }
-    })
-}
+
+    function handleChange(e) {
+        const {name, value} = e.target;
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [e.target.name]: e.target.value,
+            }
+        })
+    }
 
   // Handle update product submission
   const handleUpdate = (e) => {
@@ -66,7 +67,7 @@ function handleChange(e) {
     const frequency = formData.frequency
 
     e.preventDefault()
-    axios.put(`http://localhost:3000/products/updateProduct/${productId}`, {name, price, quantity, frequency})
+    axios.put(`https://inquisitive-ray-jersey.cyclic.cloud/products/updateProduct/${productId}`, {name, price, quantity, frequency})
     .then( (res) => {
       console.log(res)
     } )
@@ -116,13 +117,13 @@ function handleChange(e) {
                     value={formData.name}
                     onChange={handleChange}
                 />
-                <input
+                  <input
                     className={style.editProductInput}
                     required
                     type='text'
                     name='price'
-                    placeholder='Product Price'
-                    value={formData.price}
+                    placeholder={formData.price === 0 ? 'Product Price' : 'Product Price'}
+                    value={formData.price === 0 ? '' : formData.price}
                     onChange={handleChange}
                 />
                 <input
@@ -130,8 +131,8 @@ function handleChange(e) {
                     required
                     type='text'
                     name='quantity'
-                    placeholder='Product Quantity'
-                    value={formData.quantity}
+                    placeholder={formData.quantity === 0 ? 'Product Quantity' :'Product Quantity'}
+                    value={formData.quantity === 0 ? '' : formData.quantity}
                     onChange={handleChange}
                 />
                 {showFrequency && <input
@@ -139,8 +140,8 @@ function handleChange(e) {
                     required
                     type='text'
                     name='frequency'
-                    placeholder='Product Frequency (Weeks)'
-                    value={formData.frequency}
+                    placeholder={formData.frequency === 0 ? 'Product Frequency (Weeks)' : 'Product Frequency (Weeks)'}
+                    value={formData.frequency === 0 ? '' : formData.frequency}
                     onChange={handleChange}
                 />}
                 <div onClick={toggleFrequency} className={style.frequecyToggleContainer}>

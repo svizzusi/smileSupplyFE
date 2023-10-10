@@ -9,7 +9,7 @@ import OrderFormPage from "./views/OrderFormPage"
 import SmallScreensPopup from "./components/home/SmallScreensPopup"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {Tooltip} from 'react-tooltip'
 
 function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -39,6 +39,7 @@ function App() {
       <NavBar signedIn={signedIn} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
       {screenWidth <= 480 && <SmallScreensPopup />}
       <ToastContainer />
+      <Tooltip id="my-tooltip" />
       <Routes>
         <Route
           path={'/'}

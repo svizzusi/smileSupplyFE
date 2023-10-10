@@ -5,7 +5,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react'
 
 
-const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder, toast}) => {
+const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder, toast, setTotalPrice}) => {
   
   // State to store the Products
    const [products, setProducts] = useState([]);
@@ -24,7 +24,7 @@ const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder, toast
 useEffect(() => {
   const fetchData = async () => {
       try {
-          const res = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
+          const res = await axios.get(`https://inquisitive-ray-jersey.cyclic.cloud/products/getProducts/${userId}`)
           console.log(res.data);
           setProducts(res.data);
       } catch (err) {
@@ -39,7 +39,7 @@ useEffect(() => {
 
 const removeFromOrder = (id) => {
   setOrder(false)
-  axios.put(`http://localhost:3000/products/orderProduct/${id}`, {order: false})
+  axios.put(`https://inquisitive-ray-jersey.cyclic.cloud/products/orderProduct/${id}`, {order: false})
   .then( (res) => {
     console.log(res)
   } )
@@ -84,19 +84,38 @@ const copyToClipboard = (productID) => {
   }
 };
 
+// Calculate total price within the .map function
+const totalPrice = products.reduce((total, product) => {
+  if (product.order !== false) {
+    return total + product.price * product.quantity;
+  }
+  return total;
+}, 0).toFixed(2);
+
+ // Update total price whenever the order changes
+ useEffect(() => {
+  setTotalPrice(totalPrice);
+}, [products]);
+
 return (
   <tbody className={style.orderFormTableBody}>
     {products.filter(product => product.order !== false).map((product, index) => {
-        return (
+
+    return (
       <tr 
         className={style.orderFormTableRowCard} 
         key={product._id}>
         <td>{index +1}</td>
         <td>{product.name}</td>
-        <td onClick={() => copyToClipboard(product.productId)}>{product.productId}</td>
+        <td 
+          className={style.productIdButton}
+          onClick={() => copyToClipboard(product.productId)}
+          data-tooltip-id="my-tooltip" data-tooltip-content="Click to copy"
+          >{product.productId}
+        </td>
         <td>${product.price}</td>
         <td>{product.quantity}</td>
-        <td>{product.frequency === '' ? 'Non-Recurring' : product.frequency}</td>
+        <td>{product.frequency === 0 ? 'Non-Recurring' : product.frequency + ' Weeks'}</td>
         <td>
           <span className={style.orderFormEditBtn}
             ><AiOutlineEdit

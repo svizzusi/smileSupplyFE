@@ -24,7 +24,7 @@ const ExistingProductsCard = ({setShowEditProduct, setProductId, order, setOrder
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
+            const res = await axios.get(`https://inquisitive-ray-jersey.cyclic.cloud/products/getProducts/${userId}`)
             console.log(res.data);
             setProducts(res.data);
         } catch (err) {
@@ -38,7 +38,7 @@ const ExistingProductsCard = ({setShowEditProduct, setProductId, order, setOrder
 }, [userId]);
 
 const handleDelete = (id) => {
-  axios.delete(`http://localhost:3000/products/deleteProduct/${id}`)
+  axios.delete(`https://inquisitive-ray-jersey.cyclic.cloud/products/deleteProduct/${id}`)
       .then(() => {
           // Remove the deleted product from the local state
           setProducts((prevProducts) => prevProducts.filter((product) => product._id !== id));
@@ -61,7 +61,7 @@ const handleDelete = (id) => {
 
 const addToOrder = (id) => {
   setOrder(true)
-  axios.put(`http://localhost:3000/products/orderProduct/${id}`, {order: true})
+  axios.put(`https://inquisitive-ray-jersey.cyclic.cloud/products/orderProduct/${id}`, {order: true})
   .then( (res) => {
     console.log(res)
   } )
@@ -94,7 +94,7 @@ const addToOrder = (id) => {
           <td>{product.productId}</td>
           <td>${product.price}</td>
           <td>{product.quantity}</td>
-          <td>{product.frequency === '' ? 'Non-Recurring' : product.frequency}</td>
+          <td>{product.frequency === 0 ? 'Non-Recurring' : product.frequency + ' Weeks'}</td>
           <td>
             <span className={style.existingProductsEditBtn}
               ><AiOutlineEdit

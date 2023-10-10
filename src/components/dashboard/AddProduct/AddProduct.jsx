@@ -9,9 +9,9 @@ const AddProduct = ({setShowAddProduct, toast}) => {
     const [formData, setFormData] = useState({
         name: '',
         productId: '',
-        price: '',
-        quantity: '',
-        frequency: '',
+        price: 0,
+        quantity: 0,
+        frequency: 0,
         order: false
     });
 
@@ -44,10 +44,10 @@ function handleChange(e) {
 }
 
 const checkFrequency = () => {
-    if (formData.frequency === '') {
+    if (formData.frequency === 0) {
         setFormData((prevFormData) => ({
             ...prevFormData,
-            frequency: '0'
+            frequency: 0
         }))
     }
 }
@@ -65,7 +65,7 @@ const handleSubmit = async (e) => {
 
 
     try {
-        const res = await axios.post('http://localhost:3000/products/createProduct', {name, productId, price, quantity, frequency, userId, order})
+        const res = await axios.post('https://inquisitive-ray-jersey.cyclic.cloud/products/createProduct', {name, productId, price, quantity, frequency, userId, order})
         console.log(res);
         console.log(res.data);
 
@@ -74,9 +74,9 @@ const handleSubmit = async (e) => {
                 ...prevFormData,
                 name: '',
                 productId: '',
-                price: '',
-                quantity: '',
-                frequency: ''
+                price: 0,
+                quantity: 0,
+                frequency: 0
               }))
               setShowAddProduct(false)
               toast.success('Successfully added product', {
@@ -158,8 +158,8 @@ const handleSubmit = async (e) => {
                     required
                     type='text'
                     name='price'
-                    placeholder='Product Price'
-                    value={formData.price}
+                    placeholder={formData.price === 0 ? 'Product Price' : 'Product Price'}
+                    value={formData.price === 0 ? '' : formData.price}
                     onChange={handleChange}
                 />
                 <input
@@ -167,8 +167,8 @@ const handleSubmit = async (e) => {
                     required
                     type='text'
                     name='quantity'
-                    placeholder='Product Quantity'
-                    value={formData.quantity}
+                    placeholder={formData.quantity === 0 ? 'Product Quantity' :'Product Quantity'}
+                    value={formData.quantity === 0 ? '' : formData.quantity}
                     onChange={handleChange}
                 />
                 {showFrequency && <input
@@ -176,8 +176,8 @@ const handleSubmit = async (e) => {
                     required
                     type='text'
                     name='frequency'
-                    placeholder='Product Frequency (Weeks)'
-                    value={formData.frequency}
+                    placeholder={formData.frequency === 0 ? 'Product Frequency (Weeks)' : 'Product Frequency (Weeks)'}
+                    value={formData.frequency === 0 ? '' : formData.frequency}
                     onChange={handleChange}
                 />}
                 <div onClick={toggleFrequency} className={style.frequecyToggleContainer}>

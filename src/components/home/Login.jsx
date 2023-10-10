@@ -66,7 +66,7 @@ const Login = ({showLogin, setShowLogin}) => {
     const password = formData.password;
 
     try {
-      const res = await axios.post('http://localhost:3000/users/login', {email, password});
+      const res = await axios.post('https://inquisitive-ray-jersey.cyclic.cloud/users/login', {email, password});
       console.log(res);
       console.log(res.data);
       console.log(res.data.message)

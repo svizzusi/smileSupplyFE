@@ -26,6 +26,7 @@
 }
 
 .orderFormTableBody {
+    margin-top: 400px;
     padding: 10px 20px;
     width: 100%;
 }
@@ -71,6 +72,12 @@
     background: var(--rustmist);
 }
 
+.productIdButton:hover {
+    cursor: pointer;
+    background: var(--teal);
+    transition: .2s ease-in-out;
+}
+
 .orderFormEditBtn, .orderFormDeleteBtn {
     font-size: 2.2rem;
     padding: 6px;
@@ -83,4 +90,15 @@
 
 .orderFormDeleteBtn:hover {
     color: var(--tan);
+}
+
+.orderFormTotal h3{
+    width: fit-content;
+    padding: 15px 18px;
+    background: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    border: 10px solid var(--red);
 }
