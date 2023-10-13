@@ -5,9 +5,8 @@ const About = () => {
     <>
         <section className={style.aboutSection}>
             <h1 className={style.aboutSectionHeading}>About Smile Supply</h1>
-            <span className={style.aboutSectionUpdate}>Last Updated: 10/12/2023</span>
             <div className={style.aboutSectiontextContainer}>
-              <p className={style.aboutSectiontextP}>SmileSupply is a groundbreaking inventory tracking system designed to streamline inventory management specifically for dental offices. It leverages a powerful tech stack, including React, Node, Express, MongoDB, and Tailwind, to provide a seamless and efficient solution. Here's an in-depth look at what sets SmileSupply apart and how it benefits dental offices:</p>
+              <p className={style.aboutSectiontextP}>SmileSupply is a groundbreaking inventory tracking system designed to streamline inventory management specifically for dental offices. It leverages a powerful tech stack, including React, Node, Express, and MongoDB, to provide a seamless and efficient solution. Here's an in-depth look at what sets SmileSupply apart and how it benefits dental offices:</p>
               <span className={style.aboutSectiontextSpan}>User-Friendly Interface:</span>
               <p>SmileSupply features an intuitive and user-friendly interface that allows dental office staff to easily input and manage their product inventory. This simplicity ensures that even non-technical users can navigate and utilize the system effectively.</p>
               <span className={style.aboutSectiontextSpan}>Precise Tracking:</span>
