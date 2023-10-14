@@ -92,9 +92,9 @@ const addToOrder = (id) => {
           <td>{index +1}</td>
           <td>{product.name}</td>
           <td>{product.productId}</td>
-          <td>${product.price}</td>
+          <td>${product.price.toFixed(2)}</td>
           <td>{product.quantity}</td>
-          <td>{product.frequency === 0 ? 'Non-Recurring' : product.frequency + ' Weeks'}</td>
+          <td>{product.frequency === 0 ? 'Non-Recurring' : product.frequency}{product.frequency === 1 ? ' Week': ' Weeks'}</td>
           <td>
             <span className={style.existingProductsEditBtn}
               ><AiOutlineEdit

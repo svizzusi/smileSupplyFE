@@ -50,16 +50,6 @@ const Login = ({showLogin, setShowLogin}) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // if (formData.password !== formData.confirmPassword) {
-    //   toast('Passwords did not match, Please retry')
-    //   setFormData((prevFormData) => ({
-    //     ...prevFormData,
-    //     password: '',
-    //     confirmPassword: '',
-    //   }));
-    //   return;
-    // }
-
     setLoading(true);
 
     const email = formData.email;
@@ -98,21 +88,8 @@ const Login = ({showLogin, setShowLogin}) => {
     }
   };
   
-
   return (
     <>
-      {/* <ToastContainer 
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        /> */}
       <section 
         className={style.loginFormSection}
       >
@@ -122,7 +99,6 @@ const Login = ({showLogin, setShowLogin}) => {
             className={style.loginFormIcon}
           />
         </div>
-
         <form 
           onSubmit={handleSubmit}
           className={style.loginForm}
@@ -164,5 +140,4 @@ const Login = ({showLogin, setShowLogin}) => {
     </>
   )
 };
-
 export default Login;
