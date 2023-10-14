@@ -41,7 +41,18 @@ function App() {
     <>
       <NavBar signedIn={signedIn} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
       {screenWidth <= 480 && <SmallScreensPopup />}
-      <ToastContainer />
+      <ToastContainer 
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        /> 
       <Tooltip id="my-tooltip" />
       <Routes>
         <Route

@@ -25,7 +25,7 @@ const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder,
     useEffect(() => {
       const fetchData = async () => {
           try {
-              const res = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
+              const res = await axios.get(`https://odd-gold-anemone-cap.cyclic.app/products/getProducts/${userId}`)
               console.log(res.data);
               setProducts(res.data);
           } catch (err) {
@@ -39,7 +39,7 @@ const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder,
   }, [userId]);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:3000/products/deleteProduct/${id}`)
+    axios.delete(`https://odd-gold-anemone-cap.cyclic.app/products/deleteProduct/${id}`)
         .then(() => {
             // Remove the deleted product from the local state
             setProducts((prevProducts) => prevProducts.filter((product) => product._id !== id));
@@ -62,7 +62,7 @@ const ReorderReminderCard = ({setShowEditProduct, setProductId, order, setOrder,
 
   const addToOrder = (id) => {
     setOrder(true)
-    axios.put(`http://localhost:3000/products/orderProduct/${id}`, {order: true})
+    axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/orderProduct/${id}`, {order: true})
     .then( (res) => {
       console.log(res)
     } )

@@ -66,7 +66,7 @@ const Login = ({showLogin, setShowLogin}) => {
     const password = formData.password;
 
     try {
-      const res = await axios.post('http://localhost:3000/users/login', {email, password});
+      const res = await axios.post('https://odd-gold-anemone-cap.cyclic.app/users/login', {email, password});
       console.log(res);
       console.log(res.data);
       console.log(res.data.message)
@@ -101,7 +101,7 @@ const Login = ({showLogin, setShowLogin}) => {
 
   return (
     <>
-      <ToastContainer 
+      {/* <ToastContainer 
           position="top-center"
           autoClose={5000}
           hideProgressBar={false}
@@ -112,7 +112,7 @@ const Login = ({showLogin, setShowLogin}) => {
           draggable
           pauseOnHover
           theme="dark"
-        />
+        /> */}
       <section 
         className={style.loginFormSection}
       >

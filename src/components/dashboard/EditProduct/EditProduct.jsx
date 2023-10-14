@@ -27,7 +27,7 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
 
     // Fetch product information from the server
   useEffect(() => {
-    axios.get(`http://localhost:3000/products/getProduct/${productId}`)
+    axios.get(`https://odd-gold-anemone-cap.cyclic.app/products/getProduct/${productId}`)
       .then(res => {
         setFormData(prevFormData => {
             return {
@@ -67,7 +67,7 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
     const frequency = formData.frequency
 
     e.preventDefault()
-    axios.put(`http://localhost:3000/products/updateProduct/${productId}`, {name, price, quantity, frequency})
+    axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/updateProduct/${productId}`, {name, price, quantity, frequency})
     .then( (res) => {
       console.log(res)
     } )
