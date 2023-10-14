@@ -24,7 +24,7 @@ const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder, toast
 useEffect(() => {
   const fetchData = async () => {
       try {
-          const res = await axios.get(`https://inquisitive-ray-jersey.cyclic.cloud/products/getProducts/${userId}`)
+          const res = await axios.get(`http://localhost:3000/products/getProducts/${userId}`)
           console.log(res.data);
           setProducts(res.data);
       } catch (err) {
@@ -39,7 +39,7 @@ useEffect(() => {
 
 const removeFromOrder = (id) => {
   setOrder(false)
-  axios.put(`https://inquisitive-ray-jersey.cyclic.cloud/products/orderProduct/${id}`, {order: false})
+  axios.put(`http://localhost:3000/products/orderProduct/${id}`, {order: false})
   .then( (res) => {
     console.log(res)
   } )

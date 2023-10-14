@@ -27,7 +27,7 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
 
     // Fetch product information from the server
   useEffect(() => {
-    axios.get(`https://inquisitive-ray-jersey.cyclic.cloud/products/getProduct/${productId}`)
+    axios.get(`http://localhost:3000/products/getProduct/${productId}`)
       .then(res => {
         setFormData(prevFormData => {
             return {
@@ -67,7 +67,7 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
     const frequency = formData.frequency
 
     e.preventDefault()
-    axios.put(`https://inquisitive-ray-jersey.cyclic.cloud/products/updateProduct/${productId}`, {name, price, quantity, frequency})
+    axios.put(`http://localhost:3000/products/updateProduct/${productId}`, {name, price, quantity, frequency})
     .then( (res) => {
       console.log(res)
     } )
