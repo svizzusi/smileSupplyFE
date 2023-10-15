@@ -5,7 +5,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react'
 
 
-const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder, toast, setTotalPrice}) => {
+const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder, toast, setTotalPrice, setOrderIds}) => {
   
   // State to store the Products
    const [products, setProducts] = useState([]);
@@ -13,10 +13,16 @@ const OrderFormCard = ({setShowEditProduct, setProductId, order, setOrder, toast
    // State to store the User id
    const [userId, setUserId] = useState();
 
+   const [clickedItemIndex, setClickedItemIndex] = useState(null);
+
+   const changeBackground = (index) => {
+    setClickedItemIndex(index);
+  };
+
    // Fetch UserName from the server on component mount
    useEffect(() => {
     const id = window.sessionStorage.getItem('userId')
-    console.log("UserId from sessionStorage:", id);
+    // console.log("UserId from sessionStorage:", id);
     setUserId(id)
   }, []);
 
@@ -25,7 +31,6 @@ useEffect(() => {
   const fetchData = async () => {
       try {
           const res = await axios.get(`https://odd-gold-anemone-cap.cyclic.app/products/getProducts/${userId}`)
-          console.log(res.data);
           setProducts(res.data);
       } catch (err) {
           console.log(err);
@@ -41,7 +46,7 @@ const removeFromOrder = (id) => {
   setOrder(false)
   axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/orderProduct/${id}`, {order: false})
   .then( (res) => {
-    console.log(res)
+    // console.log(res)
   } )
   .catch(err => console.log(err))
   toast.success('Successfully removed product from order form', {
@@ -97,6 +102,15 @@ const totalPrice = products.reduce((total, product) => {
   setTotalPrice(totalPrice);
 }, [products]);
 
+useEffect(() => {
+  const updatedOrderIds = products
+    .filter(product => product.order !== false)
+    .map(product => product._id);
+  setOrderIds(updatedOrderIds);
+  console.log(updatedOrderIds); // Log the updated value here
+}, [products]);
+
+
 return (
   <tbody className={style.orderFormTableBody}>
     {products.filter(product => product.order !== false).map((product, index) => {
@@ -109,8 +123,17 @@ return (
         <td>{product.name}</td>
         <td 
           className={style.productIdButton}
-          onClick={() => copyToClipboard(product.productId)}
-          data-tooltip-id="my-tooltip" data-tooltip-content="Click to copy"
+          onClick={() => {
+            copyToClipboard(product.productId)
+            changeBackground(index)
+          }
+          }
+          data-tooltip-id="my-tooltip" 
+          data-tooltip-content="Click to copy"
+          style={{
+            backgroundColor:
+              index === clickedItemIndex ? 'var(--tan)' : 'null', // Change background color conditionally
+          }}
           >{product.productId}
         </td>
         <td>${product.price.toFixed(2)}</td>

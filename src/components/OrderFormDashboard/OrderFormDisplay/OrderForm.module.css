@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
     padding: 30px 25px 50px 25px;
     width: 100%;
 }
@@ -11,6 +11,16 @@
 .orderFormHeading {
     text-align: center;
     text-decoration: underline;
+    padding-bottom: 40px;
+}
+
+.orderFormParagraph {
+    text-align: center;
+    font-size: 1.4rem;
+    max-width: 1000px;
+    padding-bottom: 10px;
+    line-height: 1.8rem;
+    font-weight: bold;
 }
 
 .orderFormTable {
@@ -101,4 +111,28 @@
     text-align: center;
     vertical-align: middle;
     border: 10px solid var(--red);
+}
+
+.orderFormButtons {
+    display: flex;
+    gap: 20px;
+}
+
+.orderFormBtns {
+    width: 200px;
+    padding: 12px 16px;
+    border-radius: var(--borderRadius);
+    background: var(--tan);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.orderFormBtns:hover {
+    background: var(--teal);
+    color: var(--rustmist);
 }
