@@ -10,28 +10,25 @@ const OrderForm = ({ setShowEditProduct, setProductId, order, setOrder, toast })
   const [totalPrice, setTotalPrice] = useState(0);
   const [orderIds, setOrderIds] = useState([]);
 
-  const removeAllOrders = () => {
-    // Make an API call to update orders
-    orderIds.forEach((id) => {
-      axios
-        .put(`https://odd-gold-anemone-cap.cyclic.app/products/orderProduct/${id}`, {
-          order: false,
-        })
-        .then((res) => {
-          // Handle success
-          console.log(`Order removed for product with ID: ${id}`);
-        })
-        .catch((err) => {
-          // Handle error
-          console.error(`Error removing order for product with ID: ${id}`, err);
-        });
-    });
 
-    // Clear the orderIds
-    setOrderIds([]);
-    setTimeout(() => {
-      location.reload();
-    }, 500);
+ 
+  const removeAllOrders = async () => {
+    try {
+      for (const id of orderIds) {
+        // Make an API call to update orders
+        await axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/resetFrequency/${id}`);
+        console.log(`Order removed for product with ID: ${id}`);
+      }
+  
+      // Clear the orderIds
+      setOrderIds([]);
+      setTimeout(() => {
+        location.reload();
+      }, 500);
+    } catch (error) {
+      // Handle any errors here
+      console.error("Error removing orders:", error);
+    }
   };
 
   useEffect(() => {
