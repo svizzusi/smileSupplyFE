@@ -65,7 +65,7 @@ const handleSubmit = async (e) => {
 
 
     try {
-        const res = await axios.post('https://odd-gold-anemone-cap.cyclic.app/products/createProduct', {name, productId, price, quantity, frequency, userId, order})
+        const res = await axios.post('https://odd-gold-anemone-cap.cyclic.app/products/createProduct', {name, productId, price, quantity, frequency, originalFrequency: frequency, userId, order})
         console.log(res);
         console.log(res.data);
 

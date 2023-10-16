@@ -138,7 +138,7 @@ return (
         </td>
         <td>${product.price.toFixed(2)}</td>
         <td>{product.quantity}</td>
-        <td>{product.frequency === 0 ? 'Non-Recurring' : product.frequency}{product.frequency === 1 ? ' Week': ' Weeks'}</td>
+        <td>{product.frequency === 0 ? 'Non-Recurring' : product.frequency}{product.frequency === 1 ? ' Week' : null}{product.frequency >= 2 ? ' Weeks' : null}</td>
         <td>
           <span className={style.orderFormEditBtn}
             ><AiOutlineEdit
