@@ -24,6 +24,7 @@ header {
 
 .logo {
     height: 60px;
+    width: 60px;
 }
 
 .navLinks {
@@ -57,6 +58,7 @@ Media Queries
 @media screen and (max-width:768px) {
     .logo {
         height: 30px;
+        width: 30px;
     }
 
     .navLinks {
