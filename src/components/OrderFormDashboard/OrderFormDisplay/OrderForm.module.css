@@ -201,6 +201,7 @@
     .orderFormBtns {
         width: 150px;
         padding: 10px 12px;
+        color: black;
     }
     .orderFormEditBtn, .orderFormDeleteBtn {
         font-size: 1.4rem;
