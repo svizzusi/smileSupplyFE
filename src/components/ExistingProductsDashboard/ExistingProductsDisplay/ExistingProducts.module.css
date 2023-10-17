@@ -92,3 +92,119 @@
 .existingProductsCartBtn:hover {
     color: var(--red);
 }
+
+
+@media screen and (max-width: 1000px) {
+    
+    .existingProductsTableRowHeader th{
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .existingProductsTableRowCard td{
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 5px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .existingProductsTable {
+        margin: 0px;
+    }
+    
+    .existingProductsTableRowHeader th{
+        padding: 12px 15px;
+        font-size: 1.2rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .existingProductsTableRowCard td{
+        padding: 12px 15px;
+        font-size: 1.2rem;
+        border: 5px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 792px) {
+    .existingProductsParagraph {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    
+    .existingProductsTableRowHeader th{
+        padding: 8px 10px;
+        font-size: 1rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .existingProductsTableRowCard td{
+        padding: 8px 10px;
+        font-size: 1rem;
+        border: 5px solid var(--red);
+    }
+    .existingProductsTotal h3{
+        padding: 10px 13px;
+        font-size: 1.2rem;
+        border: 8px solid var(--red);
+    }
+    
+    .existingProductsButtons {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .existingProductsBtns {
+        width: 150px;
+        padding: 10px 12px;
+    }
+    .existingProductsEditBtn, .existingProductsCartBtn, .existingProductsDeleteBtn {
+        font-size: 1.4rem;
+
+    }
+}
+
+@media screen and (max-width: 684px) {
+    
+    .existingProductsTableRowHeader th{
+        padding: 3px 6px;
+        font-size: .8rem;
+        border: 3px solid var(--tan);
+    }
+    
+    .existingProductsTableRowCard td{
+        padding: 3px 6px;
+        font-size: .8rem;
+        border: 3px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 544px) {
+    
+    .existingProductsTableRowHeader th{
+        padding: 3px 5px;
+        font-size: .7rem;
+        border: 2px solid var(--tan);
+    }
+    
+    .existingProductsTableRowCard td{
+        padding: 3px 5px;
+        font-size: .7rem;
+        border: 2px solid var(--red);
+    }
+}
+@media screen and (max-width: 444px) {
+    
+    .existingProductsTableRowHeader th{
+        padding: 2px 4px;
+        font-size: .6rem;
+        border: 2px solid var(--tan);
+    }
+    
+    .existingProductsTableRowCard td{
+        padding: 2px 4px;
+        font-size: .6rem;
+        border: 2px solid var(--red);
+    }
+}

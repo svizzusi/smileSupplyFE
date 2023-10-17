@@ -136,3 +136,118 @@
     background: var(--teal);
     color: var(--rustmist);
 }
+
+@media screen and (max-width: 1000px) {
+    
+    .orderFormTableRowHeader th{
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .orderFormTableRowCard td{
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 5px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .orderFormTable {
+        margin: 0px;
+    }
+    
+    .orderFormTableRowHeader th{
+        padding: 12px 15px;
+        font-size: 1.2rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .orderFormTableRowCard td{
+        padding: 12px 15px;
+        font-size: 1.2rem;
+        border: 5px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .orderFormParagraph {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    
+    .orderFormTableRowHeader th{
+        padding: 8px 10px;
+        font-size: 1rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .orderFormTableRowCard td{
+        padding: 8px 10px;
+        font-size: 1rem;
+        border: 5px solid var(--red);
+    }
+    .orderFormTotal h3{
+        padding: 10px 13px;
+        font-size: 1.2rem;
+        border: 8px solid var(--red);
+    }
+    
+    .orderFormButtons {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .orderFormBtns {
+        width: 150px;
+        padding: 10px 12px;
+    }
+    .orderFormEditBtn, .orderFormDeleteBtn {
+        font-size: 1.4rem;
+
+    }
+}
+
+@media screen and (max-width: 580px) {
+    
+    .orderFormTableRowHeader th{
+        padding: 5px 8px;
+        font-size: .8rem;
+        border: 3px solid var(--tan);
+    }
+    
+    .orderFormTableRowCard td{
+        padding: 5px 8px;
+        font-size: .8rem;
+        border: 3px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 468px) {
+    
+    .orderFormTableRowHeader th{
+        padding: 3px 5px;
+        font-size: .7rem;
+        border: 2px solid var(--tan);
+    }
+    
+    .orderFormTableRowCard td{
+        padding: 3px 5px;
+        font-size: .7rem;
+        border: 2px solid var(--red);
+    }
+    .orderFormTotal h3{
+        padding: 8px 10px;
+        font-size: 1rem;
+        border: 5px solid var(--red);
+    }
+    
+    .orderFormButtons {
+        gap: 8px;
+    }
+    
+    .orderFormBtns {
+        width: 100px;
+        padding: 5px 8px;
+    }
+}

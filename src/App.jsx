@@ -6,7 +6,7 @@ import Dashboard from "./views/Dashboard"
 import Footer from "./layout/footer/Footer"
 import ExistingProductsPage from "./views/ExistingProductsPage"
 import OrderFormPage from "./views/OrderFormPage"
-import SmallScreensPopup from "./components/home/SmallScreensPopup"
+// import SmallScreensPopup from "./components/home/SmallScreensPopup"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Tooltip} from 'react-tooltip'
@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <NavBar signedIn={signedIn} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
-      {screenWidth <= 480 && <SmallScreensPopup />}
+      {/* {screenWidth <= 480 && <SmallScreensPopup />} */}
       <ToastContainer 
           position="top-center"
           autoClose={5000}

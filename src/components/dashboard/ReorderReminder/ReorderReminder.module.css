@@ -92,3 +92,118 @@
 .reorderReminderCartBtn:hover {
     color: var(--red);
 }
+
+@media screen and (max-width: 1000px) {
+    
+    .reorderReminderTableRowHeader th{
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .reorderReminderTableRowCard td{
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 5px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .reorderReminderTable {
+        margin: 0px;
+    }
+    
+    .reorderReminderTableRowHeader th{
+        padding: 12px 15px;
+        font-size: 1.2rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .reorderReminderTableRowCard td{
+        padding: 12px 15px;
+        font-size: 1.2rem;
+        border: 5px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 792px) {
+    .reorderReminderParagraph {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    
+    .reorderReminderTableRowHeader th{
+        padding: 8px 10px;
+        font-size: 1rem;
+        border: 5px solid var(--tan);
+    }
+    
+    .reorderReminderTableRowCard td{
+        padding: 8px 10px;
+        font-size: 1rem;
+        border: 5px solid var(--red);
+    }
+    .reorderReminderTotal h3{
+        padding: 10px 13px;
+        font-size: 1.2rem;
+        border: 8px solid var(--red);
+    }
+    
+    .reorderReminderButtons {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .reorderReminderBtns {
+        width: 150px;
+        padding: 10px 12px;
+    }
+    .reorderReminderEditBtn, .reorderReminderCartBtn, .reorderReminderDeleteBtn {
+        font-size: 1.4rem;
+
+    }
+}
+
+@media screen and (max-width: 684px) {
+    
+    .reorderReminderTableRowHeader th{
+        padding: 3px 6px;
+        font-size: .8rem;
+        border: 3px solid var(--tan);
+    }
+    
+    .reorderReminderTableRowCard td{
+        padding: 3px 6px;
+        font-size: .8rem;
+        border: 3px solid var(--red);
+    }
+}
+
+@media screen and (max-width: 544px) {
+    
+    .reorderReminderTableRowHeader th{
+        padding: 3px 5px;
+        font-size: .7rem;
+        border: 2px solid var(--tan);
+    }
+    
+    .reorderReminderTableRowCard td{
+        padding: 3px 5px;
+        font-size: .7rem;
+        border: 2px solid var(--red);
+    }
+}
+@media screen and (max-width: 444px) {
+    
+    .reorderReminderTableRowHeader th{
+        padding: 2px 4px;
+        font-size: .6rem;
+        border: 2px solid var(--tan);
+    }
+    
+    .reorderReminderTableRowCard td{
+        padding: 2px 4px;
+        font-size: .6rem;
+        border: 2px solid var(--red);
+    }
+}

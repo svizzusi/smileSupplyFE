@@ -49,7 +49,7 @@
 }
 
 /* Add this media query to target screens with a width of 480px or less */
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .smallScreensPopupSection {
       /* Adjust styles for smaller screens here */
       top: 0;

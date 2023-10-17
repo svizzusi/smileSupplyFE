@@ -5,18 +5,13 @@ const SmallScreensPopup = () => {
     
   
     return (
-      <section 
-        className={style.smallScreensPopupSection}
-      >
-        <section 
-          className={style.smallScreensPopup}
-        >
+      <section className={style.smallScreensPopupSection}>
+        <section className={style.smallScreensPopup}>
           <div className={style.smallScreensPopupImage}>
             <img src={logoSmall} alt="logo" />
           </div>
-  
           <div className={style.smallScreensPopupHeadingContainer}>
-                <h2 className={style.smallScreensPopupHeading}>This Application is NOT mobile friendly. Please use a Tablet, Laptop or desktop to view site</h2>
+                <h2 className={style.smallScreensPopupHeading}>This Application is NOT meant for mobile applications. Please use a tablet, laptop or desktop to view site</h2>
           </div>
         </section>
       </section>
