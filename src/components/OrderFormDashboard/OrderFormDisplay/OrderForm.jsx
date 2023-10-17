@@ -2,7 +2,7 @@ import style from './OrderForm.module.css'
 import OrderFormCard from "./OrderFormCard";
 import OrderFormHeader from './OderFormHeader'
 import {useState, useEffect} from 'react'
-import {HiDocumentDownload} from 'react-icons/hi';
+// import {HiDocumentDownload} from 'react-icons/hi';
 import {GrPowerReset} from 'react-icons/gr';
 import axios from 'axios'
 
@@ -52,7 +52,7 @@ const OrderForm = ({ setShowEditProduct, setProductId, order, setOrder, toast })
             <h3>Grand Total: ${totalPrice}</h3>
           </section>
           <div className={style.orderFormButtons}>
-            <button className={style.orderFormBtns}><span>Download Order Form</span> <HiDocumentDownload/></button>
+            {/* <button className={style.orderFormBtns}><span>Download Order Form</span> <HiDocumentDownload/></button> */}
             <button 
               className={style.orderFormBtns}
               onClick={removeAllOrders}
