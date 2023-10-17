@@ -70,7 +70,8 @@ To get started with Smile Supply, follow these simple steps:
 
    Start by selecting the product you need, and with a single click, it's copied to your clipboard and highlighted in tan, ensuring you don't double up on items. Next, hop over to your preferred supplier's website and paste the product ID to add it to your shopping cart – no more manual data entry hassles. Repeat this for each item on your order list, and when you're done, simply hit the "Clear Order Form" button on Smile Supply. This action resets product order frequencies to your specified preferences and readies the form for your next order. Streamline your dental inventory management with Smile Supply – it's that easy! Enjoy the convenience of a well-organized and efficient ordering process.
    
-   ![clipboard](https://github.com/svizzusi/smileSupplyFE/assets/121833017/ea50df73-233f-4ff9-bf78-59536599fe9f)
+   ![clipboard](https://github.com/svizzusi/smileSupplyFE/assets/121833017/410ef5b9-df30-4aec-9d07-4830fc499de8)
+
 
 
 As you can see, Smile Supply Dental Inventory application is a wealth of pertinent information that will help you track your budget, remind you to order items so that you're never out of stock, and prevent spoilage of items by ordering excessive amounts that take up precious space on your storage shelves and cost you money in spoilage of products.
