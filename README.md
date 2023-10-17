@@ -66,8 +66,6 @@ To get started with Smile Supply, follow these simple steps:
 
 5. **Order Form Page**: This page contains all of the items that you have added to your virtual "shopping cart" from either the reorder reminder section on the dashboard or on the existing products page. This page totals up the current costs of all items added so that you can make sure that your order is within budget. With a simple click on the product ID number, the information is stored on the clipboard where it can easily be pasted into your supplier website.
 
-   ![Clipboard](https://github.com/svizzusi/smileSupplyFE/assets/121833017/d0cc9809-943e-4b31-9b75-69ed4fae5e23)
-
    Start by selecting the product you need, and with a single click, it's copied to your clipboard and highlighted in tan, ensuring you don't double up on items. Next, hop over to your preferred supplier's website and paste the product ID to add it to your shopping cart – no more manual data entry hassles. Repeat this for each item on your order list, and when you're done, simply hit the "Clear Order Form" button on Smile Supply. This action resets product order frequencies to your specified preferences and readies the form for your next order. Streamline your dental inventory management with Smile Supply – it's that easy! Enjoy the convenience of a well-organized and efficient ordering process.
    
    ![clipboard](https://github.com/svizzusi/smileSupplyFE/assets/121833017/410ef5b9-df30-4aec-9d07-4830fc499de8)
