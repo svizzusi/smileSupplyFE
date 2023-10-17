@@ -108,24 +108,6 @@
     }
 }
 
-@media screen and (max-width: 768px) {
-    .reorderReminderTable {
-        margin: 0px;
-    }
-    
-    .reorderReminderTableRowHeader th{
-        padding: 12px 15px;
-        font-size: 1.2rem;
-        border: 5px solid var(--tan);
-    }
-    
-    .reorderReminderTableRowCard td{
-        padding: 12px 15px;
-        font-size: 1.2rem;
-        border: 5px solid var(--red);
-    }
-}
-
 @media screen and (max-width: 792px) {
     .reorderReminderParagraph {
         font-size: 1rem;

@@ -96,3 +96,39 @@
     background: var(--red);
     color: var(--grayblue);
 }
+
+@media screen and (max-width: 768px) {
+    
+    .editProductFormIconContainer {
+        width: 300px;
+    }
+    
+    .editProductFormIcon {
+        font-size: 2.4rem;
+    }
+    
+    .editProductForm {
+        gap: 10px;
+        width: 300px;
+    }
+    
+    .editProductFormImage {
+        width: 60px;
+        padding: 20px 0;
+    }
+    
+    .editProductFormInputs {
+        padding: 6px;
+        gap: 6px;
+    }
+    
+    .editProductInput {
+        width: 250px;
+        padding: 6px 10px;
+    }
+    
+    .editProductSubmit {
+        width: 150px;
+        padding: 6px 10px;
+    }
+}

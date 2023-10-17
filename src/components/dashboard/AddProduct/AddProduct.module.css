@@ -96,3 +96,47 @@
     background: var(--red);
     color: var(--grayblue);
 }
+
+@media screen and (max-width: 768px) {
+    
+    .addProductFormIconContainer {
+        width: 300px;
+    }
+    
+    .addProductFormIcon {
+        font-size: 2.4rem;
+    }
+    
+    .addProductForm {
+        gap: 10px;
+        width: 300px;
+    }
+    
+    .addProductFormImage {
+        width: 60px;
+        padding: 20px 0;
+    }
+    
+    .addProductFormInputs {
+        padding: 6px;
+        gap: 6px;
+    }
+    
+    .addProductInput {
+        width: 250px;
+        padding: 6px 10px;
+    }
+    
+    .frequencyToggleOn {
+        font-size: 1.8rem;
+    }
+    
+    .frequencyToggleOff {
+        font-size: 1.8rem;
+    }
+    
+    .addProductSubmit {
+        width: 150px;
+        padding: 6px 10px;
+    }
+}

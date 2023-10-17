@@ -109,24 +109,6 @@
     }
 }
 
-@media screen and (max-width: 768px) {
-    .existingProductsTable {
-        margin: 0px;
-    }
-    
-    .existingProductsTableRowHeader th{
-        padding: 12px 15px;
-        font-size: 1.2rem;
-        border: 5px solid var(--tan);
-    }
-    
-    .existingProductsTableRowCard td{
-        padding: 12px 15px;
-        font-size: 1.2rem;
-        border: 5px solid var(--red);
-    }
-}
-
 @media screen and (max-width: 792px) {
     .existingProductsParagraph {
         font-size: 1rem;
