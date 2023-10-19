@@ -39,21 +39,16 @@ const OrderForm = ({ setShowEditProduct, setProductId, order, setOrder, toast })
 
   const generatePDF = async () => {
     const pdf = new jsPDF();
-  
     const pdfContainer = document.getElementById('pdf-container');
   
     try {
-      // Wait for the content to be fully rendered before capturing it
-      await html2canvas(pdfContainer);
+      const canvas = await html2canvas(pdfContainer);
+      const imgData = canvas.toDataURL('image/png'); // Convert to data URL
+      pdf.addImage(imgData, 'PNG', 15, 15, pdfContainer.clientWidth / 2, pdfContainer.clientHeight / 2);
+      pdf.save('table.pdf');
     } catch (error) {
       console.error('Error capturing content:', error);
-      return; // Exit the function in case of an error
     }
-  
-    // Proceed to create the PDF
-    const imgData = pdfContainer.toDataURL('image/png');
-    pdf.addImage(imgData, 'PNG', 15, 15, pdfContainer.clientWidth / 2, pdfContainer.clientHeight / 2);
-    pdf.save('table.pdf');
   };
   
 
