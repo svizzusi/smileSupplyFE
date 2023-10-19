@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react'
 import {HiDocumentDownload} from 'react-icons/hi';
 import {GrPowerReset} from 'react-icons/gr';
 import axios from 'axios'
+import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 const OrderForm = ({ setShowEditProduct, setProductId, order, setOrder, toast }) => {
@@ -38,11 +39,18 @@ const OrderForm = ({ setShowEditProduct, setProductId, order, setOrder, toast })
 
   const generatePDF = () => {
     const pdf = new jsPDF();
+  
     const pdfContainer = document.getElementById('pdf-container');
-  
-    pdf.fromHTML(pdfContainer, 15, 15);
-  
-    pdf.save('table.pdf');
+    
+    html2canvas(pdfContainer)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        pdf.addImage(imgData, 'PNG', 15, 15, pdfContainer.clientWidth / 2, pdfContainer.clientHeight / 2);
+        pdf.save('table.pdf');
+      })
+      .catch((error) => {
+        console.error('Error generating PDF:', error);
+      });
   };
   
 
