@@ -37,19 +37,21 @@ const OrderForm = ({ setShowEditProduct, setProductId, order, setOrder, toast })
     console.log(orderIds);
   }, [orderIds]);
 
-  const generatePDF = async () => {
-    const pdf = new jsPDF();
-    const pdfContainer = document.getElementById('pdf-container');
+  const generatePDF = () => {
+  const pdf = new jsPDF();
+
+  const pdfContainer = document.getElementById('pdf-container');
   
-    try {
-      const canvas = await html2canvas(pdfContainer);
-      const imgData = canvas.toDataURL('image/png'); // Convert to data URL
+  html2canvas(pdfContainer)
+    .then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
       pdf.addImage(imgData, 'PNG', 15, 15, pdfContainer.clientWidth / 2, pdfContainer.clientHeight / 2);
       pdf.save('table.pdf');
-    } catch (error) {
-      console.error('Error capturing content:', error);
-    }
-  };
+    })
+    .catch((error) => {
+      console.error('Error generating PDF:', error);
+    });
+};
   
 
     return (
