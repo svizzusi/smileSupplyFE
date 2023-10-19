@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 5px;
     padding: 30px 25px 50px 25px;
     width: 100%;
 }
@@ -187,6 +187,20 @@
     .existingProductsTableRowCard td{
         padding: 2px 4px;
         font-size: .6rem;
+        border: 2px solid var(--red);
+    }
+}
+@media screen and (max-width: 387px) {
+    
+    .existingProductsTableRowHeader th{
+        padding: 2px 3px;
+        font-size: .5rem;
+        border: 2px solid var(--tan);
+    }
+    
+    .existingProductsTableRowCard td{
+        padding: 2px 3px;
+        font-size: .5rem;
         border: 2px solid var(--red);
     }
 }
