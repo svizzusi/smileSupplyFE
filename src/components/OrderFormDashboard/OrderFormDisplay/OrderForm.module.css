@@ -54,12 +54,10 @@
     text-align: center;
     vertical-align: middle;
     border: 10px solid var(--tan);
-    color: black;
 }
 
 .orderFormTableRowCard {
     background: var(--red);
-    color: black;
 }
 
 .orderFormTableRowCard td{
@@ -70,7 +68,6 @@
     text-align: center;
     vertical-align: middle;
     border: 10px solid var(--red);
-    color: black;
 }
 
 .orderFormTableRowCard td:nth-child(7), td:nth-child(8) {
