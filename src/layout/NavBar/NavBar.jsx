@@ -66,7 +66,9 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                           onClick={() => { 
                             navigate('/'),
                             setShowSignup(false), 
-                            setShowLogin(false)
+                            setShowLogin(false),
+                            window.sessionStorage.removeItem('userName'); // Clear user name
+                            window.sessionStorage.removeItem('userId'); // Clear user ID
                         }}
                       >Log Out</span>
                   </li>}

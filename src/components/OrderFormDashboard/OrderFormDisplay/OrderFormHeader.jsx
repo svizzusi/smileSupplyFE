@@ -1,6 +1,6 @@
 import style from './OrderForm.module.css'
 
-const OderFormHeader = () => {
+const OrderFormHeader = () => {
     return (
         <thead className={style.orderFormTableHeader}>
           <tr className={style.orderFormTableRowHeader}>
@@ -17,4 +17,4 @@ const OderFormHeader = () => {
       )
     };
 
-export default OderFormHeader;
+export default OrderFormHeader;

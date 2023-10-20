@@ -4,32 +4,10 @@ import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder, toast }) => {
-  // State to store the Products
-  const [products, setProducts] = useState([]);
-
-  // State to store the User id
-  const [userId, setUserId] = useState();
-
-  // Fetch UserName from the server on component mount
-  useEffect(() => {
-    const id = window.sessionStorage.getItem('userId');
-    console.log("UserId from sessionStorage:", id);
-    setUserId(id);
-  }, []);
+const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder, toast, products, setProducts, fetchData, userId}) => {
 
   // Fetch products from the server on component mount
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(`https://odd-gold-anemone-cap.cyclic.app/products/getProducts/${userId}`);
-        console.log(res.data);
-        setProducts(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
     if (userId) {
       fetchData();
     }

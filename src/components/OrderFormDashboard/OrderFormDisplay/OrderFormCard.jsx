@@ -118,7 +118,8 @@ return (
     return (
       <tr 
         className={style.orderFormTableRowCard} 
-        key={product._id}>
+        key={product._id}
+      >
         <td>{index +1}</td>
         <td>{product.name}</td>
         <td 
