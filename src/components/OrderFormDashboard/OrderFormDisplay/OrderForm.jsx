@@ -44,9 +44,13 @@ const OrderForm = ({ setShowEditProduct, setProductId, order, setOrder, toast })
     
     pdf.addFont("helvetica", "normal");
 
-    pdf.html(tableContainer, 15, 15);
-  
-    pdf.save('table.pdf');
+    pdf.html(tableContainer, {
+      callback: function (pdf) {
+        pdf.save('table.pdf');
+      },
+      x: 10,
+      y: 10,
+    });
   };
   
 
