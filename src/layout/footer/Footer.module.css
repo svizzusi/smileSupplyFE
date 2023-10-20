@@ -56,8 +56,10 @@
 }
 
 @media  screen and (max-width: 768px) {
-    .footer {
+    .footerContainer {
         height: fit-content;
+    }
+    .footer {
         flex-direction: column;
         gap: 10px;
     }
