@@ -77,13 +77,13 @@
     outline: none;
     border: none;
     border-radius: var(--borderRadius);
-    background: var(--grayblue);
-    color: var(--red);
+    background: var(--red);
+    color: var(--grayblue);
     cursor: pointer;
     margin-top: 20px;
 }
 
 .signupSubmit:hover {
-    background: var(--red);
-    color: var(--grayblue);
+    background: var(--grayblue);
+    color: var(--red);
 }

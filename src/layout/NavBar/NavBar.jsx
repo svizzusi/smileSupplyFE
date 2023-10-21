@@ -27,7 +27,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                 <ul 
                 className={navExpanded ? `${style.navLinks} ${style.expanded}` : style.navLinks}
                 >
-                  <li>
+                  {!signedIn && <li>
                       <span  
                           onClick={() => { 
                             closeNav(),
@@ -36,7 +36,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                             setShowLogin(false)
                         }}
                       >Home</span>
-                  </li>
+                  </li>}
                   {!signedIn && <li>
                         <span 
                           onClick={() => { closeNav(), setShowLogin(true), setShowSignup(false) }}
@@ -50,6 +50,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                   {signedIn && <li>
                     <span  
                           onClick={() => { 
+                            closeNav(),
                             navigate('/dashboard') 
                         }}
                       >Dashboard</span>
@@ -57,6 +58,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                   {signedIn && <li>
                     <span  
                           onClick={() => { 
+                            closeNav(),
                             navigate('/order-form') 
                         }}
                       >Order Form</span>
@@ -64,6 +66,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                   {signedIn && <li>
                     <span  
                           onClick={() => { 
+                            closeNav(),
                             navigate('/'),
                             setShowSignup(false), 
                             setShowLogin(false),
