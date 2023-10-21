@@ -110,7 +110,6 @@ useEffect(() => {
   console.log(updatedOrderIds); // Log the updated value here
 }, [products]);
 
-
 return (
   <tbody className={style.orderFormTableBody}>
     {products.filter(product => product.order !== false).map((product, index) => {
