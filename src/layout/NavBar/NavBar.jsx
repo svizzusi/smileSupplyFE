@@ -16,8 +16,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
     return (
         <header>
             <nav className={style.nav}>
-                <Link 
-                  to={'/'}>
+                <Link>
                   <img 
                     className={style.logo} 
                     src={logo} 
@@ -27,16 +26,6 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                 <ul 
                 className={navExpanded ? `${style.navLinks} ${style.expanded}` : style.navLinks}
                 >
-                  {!signedIn && <li>
-                      <span  
-                          onClick={() => { 
-                            closeNav(),
-                            navigate('/'),
-                            setShowSignup(false), 
-                            setShowLogin(false)
-                        }}
-                      >Home</span>
-                  </li>}
                   {!signedIn && <li>
                         <span 
                           onClick={() => { closeNav(), setShowLogin(true), setShowSignup(false) }}
