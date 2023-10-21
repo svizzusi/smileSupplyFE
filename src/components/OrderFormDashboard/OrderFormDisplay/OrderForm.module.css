@@ -135,8 +135,8 @@
 }
 
 .orderFormBtns:hover {
-    background: var(--teal);
-    color: var(--rustmist);
+    background: var(--red);
+    color: var(--teal);
 }
 
 @media screen and (max-width: 1000px) {

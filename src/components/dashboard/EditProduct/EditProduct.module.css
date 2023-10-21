@@ -87,7 +87,6 @@
     border: none;
     border-radius: var(--borderRadius);
     background: var(--tan);
-    color: var(--red);
     cursor: pointer;
     margin-top: 20px;
 }
