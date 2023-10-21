@@ -38,11 +38,11 @@ header {
 .navLinks li span{
     text-decoration: none;
     font-size: var(--links);
-    color: var(--red);
+    color: var(--teal);
 }
 
 .navLinks li span:hover{
-    color: var(--teal);
+    color: var(--red);
     transition: .3s ease-in-out;
 }
 
@@ -80,13 +80,13 @@ Media Queries
     .expanded {
         display: flex;
     }
-
+ 
     .hamburger {
         top: 20px;
         right: 0px;
         width: 40px;
         height: 4px;
-        background: var(--grayblue);
+        background: var(--teal);
         position: absolute;
         box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
         transition: 0.5s;
@@ -116,7 +116,7 @@ Media Queries
         position:absolute;
         width: 40px;
         height: 4px;
-        background: var(--grayblue);
+        background: var(--teal);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         transition:0.5s;
     }
