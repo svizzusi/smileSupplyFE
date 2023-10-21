@@ -72,6 +72,7 @@
     border: none;
     border-radius: var(--borderRadius);
     background: var(--tan);
+    color: black;
     cursor: pointer;
     margin-top: 20px;
 }
