@@ -6,7 +6,6 @@ const Privacy = () => {
         <h1 className={style.privacySectionHeading}>Privacy Policy for Smile Supply</h1>
             <span className={style.privacySectionUpdate}>Last Updated: 10/12/2023</span>
         <div className={style.privacySectiontextContainer}>
-          <span className={style.privacySectionUpdate}>At Smile Supply ("we," "us," or "our"), we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and disclose your personal information when you use our website and services (the "Service"). By using the Service, you consent to the practices described in this Privacy Policy.</span>
           <span className={style.privacySectiontextSpan}>1. Information We Collect</span>
           <p>1.1. Information You Provide: When you create an account, use the Service, or communicate with us, we may collect information you provide, including your name, email address, contact information, and any other information you choose to provide.</p>
           <p>1.2. Usage Information: We collect information about your use of the Service, including your interactions with our website, the features you use, and the content you access.</p>
@@ -29,6 +28,7 @@ const Privacy = () => {
           <p>We may update this Privacy Policy from time to time to reflect changes to our practices or for other operational, legal, or regulatory reasons. Any changes will be effective immediately upon posting on the Service.</p>
           <span className={style.privacySectiontextSpan}>7. Contact Information</span>
           <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at svizzus13@gmail.com</p>
+          <span className={style.privacySectionUpdate}>At Smile Supply ("we," "us," or "our"), we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and disclose your personal information when you use our website and services (the "Service"). By using the Service, you consent to the practices described in this Privacy Policy.</span>
         </div>
     </section>
   )
