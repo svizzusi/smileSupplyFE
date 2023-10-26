@@ -142,7 +142,7 @@ const Login = ({showLogin, setShowLogin}) => {
               {loading ? 'Logging in...' : 'Log In'}
             </button>
             <div 
-              className={style.loginSubmit}
+              className={style.loginGoogleSubmit}
               onClick={() => login()}>
               Sign in with Google <FcGoogle />
             </div>

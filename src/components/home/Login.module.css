@@ -77,6 +77,27 @@
     margin-top: 20px;
 }
 
+.loginGoogleSubmit {
+    width: 150px;
+    padding: 10px 16px;
+    outline: none;
+    border: none;
+    border-radius: var(--borderRadius);
+    background: white;
+    color: black;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13rem;
+}
+
+.loginGoogleSubmit:hover {
+    background: var(--red);
+    color: var(--teal);
+}
+
 .loginSubmit:hover {
     background: var(--red);
     color: var(--teal);
