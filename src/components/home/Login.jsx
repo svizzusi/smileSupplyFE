@@ -1,7 +1,7 @@
 import style from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { GoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
@@ -12,12 +12,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = ({showLogin, setShowLogin}) => {
 
     //Google Oauth Login
-    const responseMessage = (response) => {
-      console.log(response);
-    };
-    const errorMessage = (error) => {
-        console.log(error);
-    };
+    const login = useGoogleLogin({
+      onSuccess: tokenResponse => console.log(tokenResponse),
+    });
 
   const navigate = useNavigate()
 
@@ -143,7 +140,9 @@ const Login = ({showLogin, setShowLogin}) => {
             >
               {loading ? 'Logging in...' : 'Log In'}
             </button>
-            <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+            <div onClick={() => login()}>
+              Sign in with Google 🚀{' '}
+            </div>
           </div>
         </form>
       </section>
