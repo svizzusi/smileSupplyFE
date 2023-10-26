@@ -144,7 +144,7 @@ const Login = ({showLogin, setShowLogin}) => {
             <div 
               className={style.loginGoogleSubmit}
               onClick={() => login()}>
-              Sign in with <FcGoogle />
+              Google Sign in <FcGoogle />
             </div>
           </div>
         </form>
