@@ -2,6 +2,7 @@ import style from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
+import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
@@ -140,8 +141,10 @@ const Login = ({showLogin, setShowLogin}) => {
             >
               {loading ? 'Logging in...' : 'Log In'}
             </button>
-            <div onClick={() => login()}>
-              Sign in with Google 🚀{' '}
+            <div 
+              className={style.loginSubmit}
+              onClick={() => login()}>
+              Sign in with Google <FcGoogle />
             </div>
           </div>
         </form>

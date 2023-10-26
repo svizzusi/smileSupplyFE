@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-import { GoogleLogin } from '@react-oauth/google';
 import { useState, useEffect } from 'react'
 import NavBar from './layout/NavBar/NavBar'
 import Home from "./views/Home"
