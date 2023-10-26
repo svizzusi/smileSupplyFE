@@ -11,10 +11,35 @@ import { FcGoogle } from 'react-icons/fc';
 
 const Signup = ({showSignup, setShowSignup}) => {
 
-      //Google Oauth Login
-      const login = useGoogleLogin({
-        onSuccess: tokenResponse => console.log(tokenResponse),
-      });
+
+  const [ user, setUser ] = useState([]);
+  const [ profile, setProfile ] = useState([]);
+     
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log('Login Failed:', error)
+  });
+
+
+    useEffect(
+        () => {
+            if (user) {
+                axios
+                    .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+                        headers: {
+                            Authorization: `Bearer ${user.access_token}`,
+                            Accept: 'application/json'
+                        }
+                    })
+                    .then((res) => {
+                        setProfile(res.data);
+                        alert (profile.name)
+                    })
+                    .catch((err) => console.log(err));
+            }
+        },
+        [ user ]
+    );
 
   const navigate = useNavigate()
 
