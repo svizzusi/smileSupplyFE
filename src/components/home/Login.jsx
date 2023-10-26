@@ -1,13 +1,13 @@
 import style from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useGoogleLogin } from '@react-oauth/google';
-import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useGoogleLogin } from '@react-oauth/google';
+import { FcGoogle } from 'react-icons/fc';
 
 
 const Login = ({showLogin, setShowLogin}) => {
@@ -144,7 +144,7 @@ const Login = ({showLogin, setShowLogin}) => {
             <div 
               className={style.loginGoogleSubmit}
               onClick={() => login()}>
-              Sign in with Google <FcGoogle />
+              Log in with Google <FcGoogle />
             </div>
           </div>
         </form>

@@ -6,8 +6,15 @@ import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useGoogleLogin } from '@react-oauth/google';
+import { FcGoogle } from 'react-icons/fc';
 
 const Signup = ({showSignup, setShowSignup}) => {
+
+      //Google Oauth Login
+      const login = useGoogleLogin({
+        onSuccess: tokenResponse => console.log(tokenResponse),
+      });
 
   const navigate = useNavigate()
 
@@ -136,7 +143,7 @@ const Signup = ({showSignup, setShowSignup}) => {
               name="email"
               placeholder='Email'
               value={formData.email}
-            onChange={handleChange}
+              onChange={handleChange}
             />
             <input
               className={style.signupInput}
@@ -185,6 +192,11 @@ const Signup = ({showSignup, setShowSignup}) => {
             >
               {loading ? 'Signing Up...' : 'Sign Up'}
             </button>
+            <div 
+              className={style.signupGoogleSubmit}
+              onClick={() => login()}>
+              Sign up with Google <FcGoogle />
+            </div>
           </div>
         </form>
       </section>
