@@ -21,14 +21,6 @@ function App() {
   const [signedIn, setSignedIn] = useState(false)
   const [productId, setProductId] = useState()
   const [order, setOrder] = useState(false)
-
-  //Google Oauth Login
-  const responseMessage = (response) => {
-    console.log(response);
-  };
-  const errorMessage = (error) => {
-      console.log(error);
-  };
    
   // State to track the screen width
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -48,7 +40,6 @@ function App() {
 
   return (
     <>
-      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
       <NavBar signedIn={signedIn} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
       {/* {screenWidth <= 480 && <SmallScreensPopup />} */}
       <ToastContainer 
