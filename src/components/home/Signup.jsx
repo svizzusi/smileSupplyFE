@@ -33,7 +33,7 @@ const Signup = ({showSignup, setShowSignup}) => {
                     })
                     .then((res) => {
                         setProfile(res.data);
-                        console.log(profile.name)
+                        console.log(res.data)
                     })
                     .catch((err) => console.log(err));
             }
