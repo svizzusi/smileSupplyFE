@@ -6,7 +6,7 @@ import './reset.css'
 import './index.css'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-const clientID = import.meta.env.Vercel_GOOGLE_CLIENT_ID
+const clientID = process.env.Vite_VERCEL_GOOGLE_CLIENT_ID
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId={clientID}>
