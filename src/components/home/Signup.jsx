@@ -21,8 +21,10 @@ const Signup = ({showSignup, setShowSignup}) => {
   });
 
 
+
     useEffect(
         () => {
+          console.log(user)
             if (user) {
                 axios
                     .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
