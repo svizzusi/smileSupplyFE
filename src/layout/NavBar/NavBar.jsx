@@ -28,6 +28,11 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                 >
                   {!signedIn && <li>
                         <span 
+                          onClick={() => { closeNav(), setShowLogin(true), setShowSignup(false), navigate('/')  }}
+                      >Home</span>
+                  </li>}
+                  {!signedIn && <li>
+                        <span 
                           onClick={() => { closeNav(), setShowLogin(true), setShowSignup(false) }}
                       >Login</span>
                   </li>}
