@@ -8,6 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGoogleLogin } from '@react-oauth/google';
 import { FcGoogle } from 'react-icons/fc';
+import { hasGrantedAllScopesGoogle } from '@react-oauth/google';
 
 const Signup = ({showSignup, setShowSignup}) => {
 
@@ -20,7 +21,11 @@ const Signup = ({showSignup, setShowSignup}) => {
     onError: (error) => console.log('Login Failed:', error)
   });
 
-
+  const hasAccess = hasGrantedAllScopesGoogle(
+    tokenResponse,
+    'google-scope-1',
+    'google-scope-2',
+  );
 
     useEffect(
         () => {
