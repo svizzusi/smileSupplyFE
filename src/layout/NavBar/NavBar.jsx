@@ -16,7 +16,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
     return (
         <header>
             <nav className={style.nav}>
-                <Link>
+                <Link to={'/'}>
                   <img 
                     className={style.logo} 
                     src={logo} 
