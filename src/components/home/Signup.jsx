@@ -227,7 +227,7 @@ const Signup = ({showSignup, setShowSignup}) => {
             <div 
               className={style.signupGoogleSubmit}
               onClick={() => login()}>
-              Sign up with Google <FcGoogle />
+              <FcGoogle /> Sign up with Google
             </div>
           </div>
         </form>
