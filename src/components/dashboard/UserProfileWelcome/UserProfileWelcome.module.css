@@ -14,19 +14,19 @@
 }
 @media  screen and (max-width: 768px) {
     
-}
-.userProfileProfile h1 {
-    font-size: 2.6rem;
-}
-.userProfileProfile h2 {
-    font-size: 2.4rem;
+    .userProfileProfile h1 {
+        font-size: 2.6rem;
+    }
+    .userProfileProfile h2 {
+        font-size: 2.4rem;
+    }
 }
 @media  screen and (max-width: 420px) {
-    
-}
-.userProfileProfile h1 {
-    font-size: 1.6rem;
-}
-.userProfileProfile h2 {
-    font-size: 1.4rem;
+
+    .userProfileProfile h1 {
+        font-size: 1.6rem;
+    }
+    .userProfileProfile h2 {
+        font-size: 1.4rem;
+    }
 }
