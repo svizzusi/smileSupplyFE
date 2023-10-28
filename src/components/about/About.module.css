@@ -43,3 +43,19 @@
     font-weight: bold;
     line-height: 2.4rem;
 }
+
+@media  screen and (max-width: 768px) {
+    .aboutSectiontextSpan {
+        font-size: 1.8rem;
+    }
+    
+    .aboutSectiontextContainer > p {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
+    
+    .aboutSectiontextP {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
+}
