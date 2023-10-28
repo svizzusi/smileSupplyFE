@@ -1,6 +1,6 @@
 .UserProfileBtns {
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
     padding: 12px 16px;
     border-radius: var(--borderRadius);
     background: var(--grayblue);
