@@ -17,18 +17,18 @@ const UserProfile = ({productId, setProductId, order, setOrder, toast}) => {
   const [showAddProduct, setShowAddProduct] = useState(false)
   const [showEditProduct, setShowEditProduct] = useState(false)
 
-    // State to store the Products
-    const [products, setProducts] = useState([]);
+  // State to store the Products
+  const [products, setProducts] = useState([]);
 
   // State to store the User id
   const [userId, setUserId] = useState();
   
-    // Fetch UserName from the server on component mount
-    useEffect(() => {
-      const id = window.sessionStorage.getItem('userId');
-      console.log("UserId from sessionStorage:", id);
-      setUserId(id);
-    }, []);
+  // Fetch UserName from the server on component mount
+  useEffect(() => {
+    const id = window.sessionStorage.getItem('userId');
+    console.log("UserId from sessionStorage:", id);
+    setUserId(id);
+  }, []);
 
   const fetchData = async () => {
     try {
