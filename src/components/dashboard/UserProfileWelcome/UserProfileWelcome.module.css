@@ -20,3 +20,12 @@
 .userProfileProfile h2 {
     font-size: 2.4rem;
 }
+@media  screen and (max-width: 420px) {
+    
+}
+.userProfileProfile h1 {
+    font-size: 2.2rem;
+}
+.userProfileProfile h2 {
+    font-size: 2rem;
+}
