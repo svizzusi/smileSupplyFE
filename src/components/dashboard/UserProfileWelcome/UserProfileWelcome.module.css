@@ -1,6 +1,5 @@
 .userProfileProfile {
-    width: 100%;
-    max-width: 400px;
+    width: 400px;
     height: 200px;
     padding: 20px;
     background: var(--grayblue);
