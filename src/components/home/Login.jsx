@@ -6,16 +6,16 @@ import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useGoogleLogin } from '@react-oauth/google';
+// import { useGoogleLogin } from '@react-oauth/google';
 import { FcGoogle } from 'react-icons/fc';
 
 
-const Login = ({showLogin, setShowLogin}) => {
+const Login = ({showLogin, setShowLogin, setUser}) => {
 
-    //Google Oauth Login
-    const login = useGoogleLogin({
-      onSuccess: tokenResponse => console.log(tokenResponse),
-    });
+    // //Google Oauth Login
+    // const login = useGoogleLogin({
+    //   onSuccess: tokenResponse => console.log(tokenResponse),
+    // });
 
   const navigate = useNavigate()
 
@@ -76,6 +76,7 @@ const Login = ({showLogin, setShowLogin}) => {
           password: ''
         }));
       } else {
+        setUser(true)
         window.sessionStorage.setItem('userName', res.data.userName)
         window.sessionStorage.setItem('userId', res.data.id)
        
@@ -143,7 +144,8 @@ const Login = ({showLogin, setShowLogin}) => {
             </button>
             <div 
               className={style.loginGoogleSubmit}
-              onClick={() => login()}>
+              // onClick={() => login()}
+              >
               <FcGoogle /> Log in with Google
             </div>
           </div>

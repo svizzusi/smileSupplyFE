@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 
-const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
+const NavBar = ({setShowLogin, setShowSignup, user, setUser}) => {
     const [navExpanded, setNavExpanded] = useState(false)
     const navigate = useNavigate()
 
@@ -26,22 +26,22 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                 <ul 
                 className={navExpanded ? `${style.navLinks} ${style.expanded}` : style.navLinks}
                 >
-                  {!signedIn && <li>
+                  {!user && <li>
                         <span 
                           onClick={() => { closeNav(), setShowLogin(false), setShowSignup(false), navigate('/')  }}
                       >Home</span>
                   </li>}
-                  {!signedIn && <li>
+                  {!user && <li>
                         <span 
                           onClick={() => { closeNav(), setShowLogin(true), setShowSignup(false) }}
                       >Login</span>
                   </li>}
-                  {!signedIn && <li>
+                  {!user && <li>
                        <span 
                           onClick={() => { closeNav(), setShowSignup(true), setShowLogin(false) }}
                       >Sign Up</span>
                   </li>}
-                  {signedIn && <li>
+                  {user && <li>
                     <span  
                           onClick={() => { 
                             closeNav(),
@@ -49,7 +49,7 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                         }}
                       >Dashboard</span>
                   </li>}
-                  {signedIn && <li>
+                  {user && <li>
                     <span  
                           onClick={() => { 
                             closeNav(),
@@ -57,15 +57,17 @@ const NavBar = ({setShowLogin, setShowSignup, signedIn}) => {
                         }}
                       >Order Form</span>
                   </li>}
-                  {signedIn && <li>
+                  {user && <li>
                     <span  
                           onClick={() => { 
                             closeNav(),
                             navigate('/'),
                             setShowSignup(false), 
                             setShowLogin(false),
+                            setUser(false),
                             window.sessionStorage.removeItem('userName'); // Clear user name
                             window.sessionStorage.removeItem('userId'); // Clear user ID
+                            console.log(user)
                         }}
                       >Log Out</span>
                   </li>}

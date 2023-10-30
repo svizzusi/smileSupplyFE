@@ -1,18 +1,13 @@
 import HeroSection from "../components/home/HeroSection";
-import {useEffect} from 'react'
 import Login from "../components/home/Login";
 import Signup from "../components/home/Signup";
 
-const Home = ({showLogin, setShowLogin, showSignup, setShowSignup, setSignedIn}) => {
-  
-  useEffect(() => {
-    setSignedIn(false);
-  }, [])
+const Home = ({showLogin, setShowLogin, showSignup, setShowSignup, setUser}) => {
 
   return (
     <>
       <HeroSection />
-      {showLogin && <Login showLogin={showLogin} setShowLogin={setShowLogin} />}
+      {showLogin && <Login showLogin={showLogin} setShowLogin={setShowLogin} setUser={setUser} />}
       {showSignup && <Signup showSignup={showSignup} setShowSignup={setShowSignup} />}
     </>
   )

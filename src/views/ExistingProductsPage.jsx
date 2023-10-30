@@ -1,10 +1,10 @@
 import ExistingProductsDashboard from "../components/ExistingProductsDashboard/ExistingProductsDashboard";
 import {useEffect} from 'react'
 
-const ExistingProductsPage = ({productId, setProductId, setSignedIn, order, setOrder, toast}) => {
+const ExistingProductsPage = ({productId, setProductId, setUser, order, setOrder, toast}) => {
 
   useEffect(() => {
-    setSignedIn(true)
+    setUser(true)
   }, []);
   
 

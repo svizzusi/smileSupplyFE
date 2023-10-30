@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, Navigate } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import NavBar from './layout/NavBar/NavBar'
 import Home from "./views/Home"
@@ -17,10 +17,20 @@ import AboutPage from "./views/AboutPage"
 function App() {
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)
-  const [signedIn, setSignedIn] = useState(false)
   const [productId, setProductId] = useState()
   const [order, setOrder] = useState(false)
-   
+  
+
+  // Google OAuth
+  const [id, setId] = useState(window.sessionStorage.getItem('userId'))
+  const [user, setUser] = useState(id ? true : false)
+
+  useEffect(() => {
+    console.log(id)
+    console.log(user)
+  }, [user]);
+  
+  
   // State to track the screen width
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -39,7 +49,7 @@ function App() {
 
   return (
     <>
-      <NavBar signedIn={signedIn} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
+      <NavBar user={user} setUser={setUser} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
       {/* {screenWidth <= 480 && <SmallScreensPopup />} */}
       <ToastContainer 
           position="top-center"
@@ -57,19 +67,28 @@ function App() {
       <Routes>
         <Route
           path={'/'}
-          element={<Home showLogin={showLogin} setShowLogin={setShowLogin} showSignup={showSignup} setShowSignup={setShowSignup} setSignedIn={setSignedIn}/>}
+          element={<Home showLogin={showLogin} setShowLogin={setShowLogin} showSignup={showSignup} setShowSignup={setShowSignup} setUser={setUser}/>}
         ></Route>
         <Route
           path={'/dashboard'}
-          element={<Dashboard setSignedIn={setSignedIn} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder} toast={toast}/>}
+          element={user ? 
+            <Dashboard setUser={setUser} productId={productId} setProductId={setProductId} order={order} setOrder={setOrder} toast={toast}/>
+            : <Navigate to={'/'}/>
+          }
         ></Route>
         <Route
           path={'/existing-products'}
-          element={<ExistingProductsPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn} order={order} setOrder={setOrder} toast={toast}/>}
+          element={user ?
+            <ExistingProductsPage productId={productId} setProductId={setProductId} setUser={setUser} order={order} setOrder={setOrder} toast={toast}/>
+            : <Navigate to={'/'} />
+          }
         ></Route>
         <Route
           path={'/order-form'}
-          element={<OrderFormPage productId={productId} setProductId={setProductId} setSignedIn={setSignedIn}  order={order} setOrder={setOrder} toast={toast}/>}
+          element={user ?
+            <OrderFormPage productId={productId} setProductId={setProductId} setUser={setUser}  order={order} setOrder={setOrder} toast={toast}/>
+            : <Navigate to={'/'} />
+          }
         ></Route>
         <Route
           path={'/about'}

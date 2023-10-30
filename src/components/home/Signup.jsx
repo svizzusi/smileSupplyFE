@@ -6,7 +6,7 @@ import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useGoogleLogin } from '@react-oauth/google';
+// import { useGoogleLogin } from '@react-oauth/google';
 import { FcGoogle } from 'react-icons/fc';
 // import { hasGrantedAllScopesGoogle } from '@react-oauth/google';
 
@@ -16,10 +16,10 @@ const Signup = ({showSignup, setShowSignup}) => {
   // const [ user, setUser ] = useState([]);
   // const [ profile, setProfile ] = useState([]);
      
-  const login = useGoogleLogin({
-    onSuccess: (codeResponse) => console.log(codeResponse),
-    onError: (error) => console.log('Login Failed:', error)
-  });
+  // const login = useGoogleLogin({
+  //   onSuccess: (codeResponse) => console.log(codeResponse),
+  //   onError: (error) => console.log('Login Failed:', error)
+  // });
 
   // const hasAccess = hasGrantedAllScopesGoogle(
   //   tokenResponse,
@@ -226,7 +226,8 @@ const Signup = ({showSignup, setShowSignup}) => {
             </button>
             <div 
               className={style.signupGoogleSubmit}
-              onClick={() => login()}>
+              // onClick={() => login()}
+              >
               <FcGoogle /> Sign up with Google
             </div>
           </div>
