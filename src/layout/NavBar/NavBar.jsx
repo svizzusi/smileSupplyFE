@@ -67,7 +67,6 @@ const NavBar = ({setShowLogin, setShowSignup, user, setUser}) => {
                             setUser(false),
                             window.sessionStorage.removeItem('userName'); // Clear user name
                             window.sessionStorage.removeItem('userId'); // Clear user ID
-                            console.log(user)
                         }}
                       >Log Out</span>
                   </li>}
