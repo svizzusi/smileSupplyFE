@@ -12,10 +12,10 @@ import { FcGoogle } from 'react-icons/fc';
 
 const Login = ({showLogin, setShowLogin, setUser}) => {
 
-    // //Google Oauth Login
-    // const login = useGoogleLogin({
-    //   onSuccess: tokenResponse => console.log(tokenResponse),
-    // });
+    //Google Oauth Login
+    const googleLogin = () => {
+      window.open("https://odd-gold-anemone-cap.cyclic.app", "_self")
+      }
 
   const navigate = useNavigate()
 
@@ -144,7 +144,7 @@ const Login = ({showLogin, setShowLogin, setUser}) => {
             </button>
             <div 
               className={style.loginGoogleSubmit}
-              // onClick={() => login()}
+              onClick={googleLogin}
               >
               <FcGoogle /> Log in with Google
             </div>
