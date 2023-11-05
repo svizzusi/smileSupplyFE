@@ -14,7 +14,7 @@ const Login = ({showLogin, setShowLogin, setUser}) => {
 
     //Google Oauth Login
     const googleLogin = () => {
-      window.open("https://odd-gold-anemone-cap.cyclic.app", "_self")
+      window.open("https://odd-gold-anemone-cap.cyclic.app/auth/google", "_self")
       }
 
   const navigate = useNavigate()
