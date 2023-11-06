@@ -6,13 +6,13 @@ import Dashboard from "./views/Dashboard"
 import Footer from "./layout/footer/Footer"
 import ExistingProductsPage from "./views/ExistingProductsPage"
 import OrderFormPage from "./views/OrderFormPage"
-// import SmallScreensPopup from "./components/home/SmallScreensPopup"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Tooltip} from 'react-tooltip'
 import TermsPage from "./views/TermsPage"
 import PrivacyPage from "./views/PrivacyPage"
 import AboutPage from "./views/AboutPage"
+import axios from 'axios'
 
 function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -25,32 +25,29 @@ function App() {
   const [id, setId] = useState(window.sessionStorage.getItem('userId'))
   const [user, setUser] = useState(id ? true : false)
 
-  useEffect(() => {
-    console.log(id)
-    console.log(user)
-  }, [user]);
-  
-  
-  // State to track the screen width
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const axiosWithCredentials = axios.create({
+    withCredentials: true,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Credentials': true
+    }
+  })
 
-    // Update the screen width when the window is resized
-    useEffect(() => {
-      const handleResize = () => {
-        setScreenWidth(window.innerWidth);
-      };
-      
-      window.addEventListener('resize', handleResize);
-  
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axiosWithCredentials.get('https://odd-gold-anemone-cap.cyclic.app/auth/login/success')
+        console.log(res)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }, [user]);
 
   return (
     <>
       <NavBar user={user} setUser={setUser} setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
-      {/* {screenWidth <= 480 && <SmallScreensPopup />} */}
       <ToastContainer 
           position="top-center"
           autoClose={5000}
