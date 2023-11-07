@@ -17,6 +17,7 @@ const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder
   useEffect(() => {
     if (products.length > 0) {
       const currentDate = new Date();
+      console.log(currentDate)
       const updatedProducts = products.map((product) => {
         if (product.frequency !== 0) {
           const createdAt = new Date(product.createdAt);
