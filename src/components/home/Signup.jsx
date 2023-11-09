@@ -6,47 +6,9 @@ import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { useGoogleLogin } from '@react-oauth/google';
 import { FcGoogle } from 'react-icons/fc';
-// import { hasGrantedAllScopesGoogle } from '@react-oauth/google';
 
-const Signup = ({showSignup, setShowSignup}) => {
-
-
-  // const [ user, setUser ] = useState([]);
-  // const [ profile, setProfile ] = useState([]);
-     
-  // const login = useGoogleLogin({
-  //   onSuccess: (codeResponse) => console.log(codeResponse),
-  //   onError: (error) => console.log('Login Failed:', error)
-  // });
-
-  // const hasAccess = hasGrantedAllScopesGoogle(
-  //   tokenResponse,
-  //   'google-scope-1',
-  //   'google-scope-2',
-  // );
-
-    // useEffect(
-    //     () => {
-    //       console.log(user)
-    //         if (user) {
-    //             axios
-    //                 .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-    //                     headers: {
-    //                         Authorization: `Bearer ${user.access_token}`,
-    //                         Accept: 'application/json'
-    //                     }
-    //                 })
-    //                 .then((res) => {
-    //                     setProfile(res.data);
-    //                     console.log(res.data)
-    //                 })
-    //                 .catch((err) => console.log(err));
-    //         }
-    //     },
-    //     [ user ]
-    // );
+const Signup = ({showSignup, setShowSignup, setUser}) => {
 
   const navigate = useNavigate()
 
@@ -116,6 +78,7 @@ const Signup = ({showSignup, setShowSignup}) => {
           confirmPassword: '',
         }))
       } else {
+        setUser(true)
         window.sessionStorage.setItem('userName', res.data.userName)
         window.sessionStorage.setItem('userId', res.data.id)
         

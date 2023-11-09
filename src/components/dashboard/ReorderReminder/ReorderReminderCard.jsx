@@ -4,8 +4,11 @@ import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder, toast, products, setProducts, fetchData, userId}) => {
 
+
+
+const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder, toast, products, setProducts, fetchData, userId}) => {
+  
   // Fetch products from the server on component mount
   useEffect(() => {
     if (userId) {
@@ -14,17 +17,21 @@ const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder
   }, [userId]);
 
   // Calculate the time left for each product based on the frequency
+  const [currentDate, setCurrentDate] = useState(new Date())
+  const [productCreatedTime, setProductCreatedTime] = useState()
+  const [frequencyInMilliSeconds, setFrequencyInMilliSeconds] = useState()
+  
   useEffect(() => {
+    console.log(currentDate.getTime(), 'current date')
+    console.log(productCreatedTime, "created date")
+    console.log(frequencyInMilliSeconds, "created frequency")
     if (products.length > 0) {
-      const currentDate = new Date();
-      console.log(currentDate)
       const updatedProducts = products.map((product) => {
         if (product.frequency !== 0) {
-          const createdAt = new Date(product.createdAt);
-          const frequencyInMilliSeconds = product.frequency * 7 * 24 * 60 * 60 * 1000;
-          const timeLeftInMilliSeconds = frequencyInMilliSeconds - (currentDate - createdAt);
+          setProductCreatedTime(new Date(product.createdAt))
+          setFrequencyInMilliSeconds(product.frequency * 7 * 24 * 60 * 60 * 1000) 
+          const timeLeftInMilliSeconds = frequencyInMilliSeconds - (currentDate - productCreatedTime);
           const timeLeftInWeeks = Math.floor(timeLeftInMilliSeconds / (7 * 24 * 60 * 60 * 1000));
-
           // Create a new product object with updated frequency
           return { ...product, frequency: timeLeftInWeeks };
         }
