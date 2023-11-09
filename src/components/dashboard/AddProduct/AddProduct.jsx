@@ -4,8 +4,24 @@ import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
 import axios from 'axios'
+import { format, addWeeks, startOfDay, startOfWeek, parseISO } from 'date-fns'
 
 const AddProduct = ({setShowAddProduct, toast, fetchData}) => {
+
+    const initialWeek = startOfWeek(new Date(), { weekStartsOn: 0 })
+    console.log('initial week', initialWeek)
+    const reorderReminderWeek = startOfWeek(addWeeks(initialWeek, 0))
+    console.log('reorder week', reorderReminderWeek)
+    const currentWeek = startOfWeek(new Date(), { weekStartsOn: 0 })
+    console.log('Current week', currentWeek)
+
+    if (currentWeek.toString() === reorderReminderWeek.toString()) {
+        console.log('Party Time')
+    } else {
+        console.log('Sad Time')
+    }
+
+
     const [formData, setFormData] = useState({
         name: '',
         productId: '',
