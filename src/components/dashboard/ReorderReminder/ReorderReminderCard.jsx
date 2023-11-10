@@ -3,8 +3,7 @@ import { BsTrash } from 'react-icons/bs';
 import { AiOutlineEdit, AiOutlineShoppingCart } from 'react-icons/ai';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
-
+import { format, addWeeks, startOfDay, parseISO } from 'date-fns'
 
 
 const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder, toast, products, setProducts, fetchData, userId}) => {
@@ -22,15 +21,15 @@ const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder
   const [frequencyInMilliSeconds, setFrequencyInMilliSeconds] = useState()
   
   useEffect(() => {
-    console.log(currentDate.getTime(), 'current date')
-    console.log(productCreatedTime, "created date")
-    console.log(frequencyInMilliSeconds, "created frequency")
+    // console.log(currentDate.getTime(), 'current date')
+    // console.log(frequencyInMilliSeconds, "created frequency")
     if (products.length > 0) {
       const updatedProducts = products.map((product) => {
         if (product.frequency !== 0) {
           setProductCreatedTime(new Date(product.createdAt))
           setFrequencyInMilliSeconds(product.frequency * 7 * 24 * 60 * 60 * 1000) 
           const timeLeftInMilliSeconds = frequencyInMilliSeconds - (currentDate - productCreatedTime);
+          console.log(productCreatedTime, "created date")
           const timeLeftInWeeks = Math.floor(timeLeftInMilliSeconds / (7 * 24 * 60 * 60 * 1000));
           // Create a new product object with updated frequency
           return { ...product, frequency: timeLeftInWeeks };
@@ -40,7 +39,7 @@ const ReorderReminderCard = ({ setShowEditProduct, setProductId, order, setOrder
 
       setProducts(updatedProducts);
     }
-  }, []);
+  }, [productCreatedTime]);
 
   const handleDelete = (id) => {
     axios

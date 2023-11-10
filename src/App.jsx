@@ -25,26 +25,26 @@ function App() {
   const [id, setId] = useState(window.sessionStorage.getItem('userId'))
   const [user, setUser] = useState(id ? true : false)
 
-  const axiosWithCredentials = axios.create({
-    withCredentials: true,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Credentials': true
-    }
-  })
+  // const axiosWithCredentials = axios.create({
+  //   withCredentials: true,
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json',
+  //     'Access-Control-Allow-Credentials': true
+  //   }
+  // })
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await axiosWithCredentials.get('https://odd-gold-anemone-cap.cyclic.app/auth/login/success')
-        console.log(res)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getUser()
-  }, [user]);
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     try {
+  //       const res = await axiosWithCredentials.get('https://odd-gold-anemone-cap.cyclic.app/auth/login/success')
+  //       console.log(res)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getUser()
+  // }, [user]);
 
   return (
     <>

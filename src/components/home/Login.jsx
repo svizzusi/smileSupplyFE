@@ -7,7 +7,7 @@ import { RiCloseCircleFill } from 'react-icons/ri';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import { useGoogleLogin } from '@react-oauth/google';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
 
 
 const Login = ({showLogin, setShowLogin, setUser}) => {
@@ -142,12 +142,12 @@ const Login = ({showLogin, setShowLogin, setUser}) => {
             >
               {loading ? 'Logging in...' : 'Log In'}
             </button>
-            <div 
+            {/* <div 
               className={style.loginGoogleSubmit}
               onClick={googleLogin}
               >
               <FcGoogle /> Log in with Google
-            </div>
+            </div> */}
           </div>
         </form>
       </section>

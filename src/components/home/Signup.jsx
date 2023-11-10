@@ -6,7 +6,7 @@ import logoSmall from '../../assets/images/logoSmall.png';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
 
 const Signup = ({showSignup, setShowSignup, setUser}) => {
 
@@ -187,12 +187,12 @@ const Signup = ({showSignup, setShowSignup, setUser}) => {
             >
               {loading ? 'Signing Up...' : 'Sign Up'}
             </button>
-            <div 
+            {/* <div 
               className={style.signupGoogleSubmit}
               // onClick={() => login()}
               >
               <FcGoogle /> Sign up with Google
-            </div>
+            </div> */}
           </div>
         </form>
       </section>
