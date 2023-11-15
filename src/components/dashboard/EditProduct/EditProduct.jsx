@@ -61,54 +61,45 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
         })
     }
 
-    const [reorderReminderDay, setReaorderReminderDay] = useState()
-    const [parsedDate, setParsedDate] = useState()
-
-    useEffect(() => {
-        setParsedDate(parseISO(formData.currentWeek))
-        setReaorderReminderDay(startOfWeek(addWeeks(parsedDate, formData.frequency)))
-    }, [formData.currentWeek]);
-
-    const updateProducts = () => {
-        const name = formData.name
-        const price = formData.price
-        const quantity = formData.quantity
-        const frequency = formData.frequency
-        const reorderReminderWeek = reorderReminderDay
-    
-        console.log(reorderReminderWeek)
-        try {
-            const res = axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/updateProduct/${productId}`, {
-                    name,
-                    price,
-                    quantity,
-                    frequency,
-                    reorderReminderWeek
-                })
-            console.log(res);
-            toast.success('Successfully edited product', {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                });
-                setTimeout(() => {
-                  location.reload()
-                }, 3000)   
-        } catch (err) {
-            console.error(err)
-        }
-    }
   // Handle update product submission
     // const reorderReminderWeek = startOfWeek(addWeeks(formData.currentWeek, formData.frequency))
     
-    const handleUpdate = (e) => {
+    const handleUpdate = async (e) => {
         e.preventDefault()
-        updateProducts()
+        const parsedDate = parseISO(formData.currentWeek);
+        const reorderReminderWeek = startOfWeek(addWeeks(parsedDate, formData.frequency))
+
+    const name = formData.name
+    const price = formData.price
+    const quantity = formData.quantity
+    const frequency = formData.frequency
+
+    console.log(reorderReminderWeek)
+    try {
+        const res = await axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/updateProduct/${productId}`, {
+                name,
+                price,
+                quantity,
+                frequency,
+                reorderReminderWeek
+            })
+        console.log(res);
+        toast.success('Successfully edited product', {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+            setTimeout(() => {
+              location.reload()
+            }, 3000)   
+    } catch (err) {
+        console.error(err)
+    }
 }
 
   return (
