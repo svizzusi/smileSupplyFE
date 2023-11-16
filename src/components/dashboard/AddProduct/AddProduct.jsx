@@ -8,18 +8,11 @@ import {addWeeks, startOfWeek,} from 'date-fns'
 
 const AddProduct = ({setShowAddProduct, toast, fetchData}) => {
 
-    const initialWeek = startOfWeek(new Date(), { weekStartsOn: 0 })
-    console.log('initial week', initialWeek)
-    const reorderReminderWeek = startOfWeek(addWeeks(initialWeek, 0)) // need to pass in the frequency from the form
-    console.log('reorder week', reorderReminderWeek)
-    const currentWeek = startOfWeek(new Date(), { weekStartsOn: 0 })
-    console.log('Current week', currentWeek)
-
-    if (currentWeek.toString() === reorderReminderWeek.toString()) {
-        console.log('Party Time')
-    } else {
-        console.log('Sad Time')
-    }
+    // if (currentWeek.toString() === reorderReminderWeek.toString()) {
+    //     console.log('Party Time')
+    // } else {
+    //     console.log('Sad Time')
+    // }
 
 
     const [formData, setFormData] = useState({
@@ -68,6 +61,9 @@ const checkFrequency = () => {
     }
 }
 
+const currentDay = startOfWeek(new Date(), { weekStartsOn: 0 })
+const reorderReminderDay = startOfWeek(addWeeks(currentDay, formData.frequency))
+
 const handleSubmit = async (e) => {
     checkFrequency()
     e.preventDefault()
@@ -78,10 +74,22 @@ const handleSubmit = async (e) => {
     const quantity = formData.quantity
     const frequency = formData.frequency
     const order = formData.order
-
+    const currentWeek = currentDay
+    const reorderReminderWeek = reorderReminderDay
 
     try {
-        const res = await axios.post('https://odd-gold-anemone-cap.cyclic.app/products/createProduct', {name, productId, price, quantity, frequency, originalFrequency: frequency, userId, order})
+        const res = await axios.post('https://odd-gold-anemone-cap.cyclic.app/products/createProduct', {
+            name, 
+            productId, 
+            price, 
+            quantity, 
+            frequency, 
+            originalFrequency: frequency, 
+            userId, 
+            order, 
+            currentWeek, 
+            reorderReminderWeek
+        })
         console.log(res);
         console.log(res.data);
 

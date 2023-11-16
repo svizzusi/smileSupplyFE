@@ -4,13 +4,15 @@ import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
 import axios from 'axios'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
+import {addWeeks, startOfWeek, parseISO} from 'date-fns'
 
 const EditProduct = ({setShowEditProduct, productId, toast}) => {
     const [formData, setFormData] = useState({
         name: '',
         price: '',
         quantity: '',
-        frequency: ''  
+        frequency: '',
+        currentWeek: ''
     });
 
     const [showFrequency, setShowFrequency] = useState(true)
@@ -36,11 +38,12 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
                 price: res.data.price,
                 quantity: res.data.quantity,
                 frequency: res.data.frequency,
+                currentWeek: res.data.currentWeek
             }
         })
       })
       .catch(err => console.log(err));
-  }, []);
+    }, []);
 
     function handleClose(e) {
         if (e.target.id === 'editProduct') {
@@ -58,34 +61,55 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
         })
     }
 
+    const [reorderReminderDay, setReaorderReminderDay] = useState()
+    const [parsedDate, setParsedDate] = useState()
+
+    useEffect(() => {
+        setParsedDate(parseISO(formData.currentWeek))
+        setReaorderReminderDay(startOfWeek(addWeeks(parsedDate, formData.frequency)))
+    }, [formData.currentWeek]);
+
+    const updateProducts = () => {
+        const name = formData.name
+        const price = formData.price
+        const quantity = formData.quantity
+        const frequency = formData.frequency
+        const reorderReminderWeek = reorderReminderDay
+    
+        console.log(reorderReminderWeek)
+        try {
+            const res = axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/updateProduct/${productId}`, {
+                    name,
+                    price,
+                    quantity,
+                    frequency,
+                    reorderReminderWeek
+                })
+            console.log(res);
+            toast.success('Successfully edited product', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+                setTimeout(() => {
+                  location.reload()
+                }, 3000)   
+        } catch (err) {
+            console.error(err)
+        }
+    }
   // Handle update product submission
-  const handleUpdate = (e) => {
-
-    const name = formData.name
-    const price = formData.price
-    const quantity = formData.quantity
-    const frequency = formData.frequency
-
-    e.preventDefault()
-    axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/updateProduct/${productId}`, {name, price, quantity, frequency})
-    .then( (res) => {
-      console.log(res)
-    } )
-    .catch(err => console.log(err)) 
-    toast.success('Successfully edited product', {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        });
-        setTimeout(() => {
-          location.reload()
-        }, 3000)
-  }
+    // const reorderReminderWeek = startOfWeek(addWeeks(formData.currentWeek, formData.frequency))
+    
+    const handleUpdate = (e) => {
+        e.preventDefault()
+        updateProducts()
+}
 
   return (
     <section
