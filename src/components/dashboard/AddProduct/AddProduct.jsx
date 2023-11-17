@@ -4,7 +4,7 @@ import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
 import axios from 'axios'
-import {addWeeks, startOfWeek,} from 'date-fns'
+import {addWeeks, startOfWeek,format} from 'date-fns'
 
 const AddProduct = ({setShowAddProduct, toast, fetchData}) => {
 
@@ -61,8 +61,8 @@ const checkFrequency = () => {
     }
 }
 
-const currentDay = startOfWeek(new Date(), { weekStartsOn: 0 })
-const reorderReminderDay = startOfWeek(addWeeks(currentDay, formData.frequency))
+const currentDay = format(startOfWeek(new Date(), { weekStartsOn: 0 }), 'y-MM-dd')
+const reorderReminderDay = format(startOfWeek(addWeeks(startOfWeek(new Date(), { weekStartsOn: 0 }), formData.frequency)), 'y-MM-dd')
 
 const handleSubmit = async (e) => {
     checkFrequency()

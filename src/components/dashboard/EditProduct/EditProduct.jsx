@@ -4,7 +4,7 @@ import logoSmall from '../../../assets/images/logoSmall.png';
 import {RiCloseCircleFill} from 'react-icons/ri'
 import axios from 'axios'
 import {BsToggleOff, BsToggleOn} from 'react-icons/bs'
-import {addWeeks, startOfWeek, parseISO} from 'date-fns'
+import {addWeeks, startOfWeek, parseISO, format} from 'date-fns'
 
 const EditProduct = ({setShowEditProduct, productId, toast}) => {
     const [formData, setFormData] = useState({
@@ -28,22 +28,39 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
     }
 
     // Fetch product information from the server
-  useEffect(() => {
+//   useEffect(() => {
+//     console.log('USEEFFECT FIRED!')
+//     axios.get(`https://odd-gold-anemone-cap.cyclic.app/products/getProduct/${productId}`)
+//       .then(res => {
+//         setFormData(prevFormData => {
+//             console.log(res.data)
+//             return {
+//                 ...prevFormData,
+//                 name: res.data.name,
+//                 price: res.data.price,
+//                 quantity: res.data.quantity,
+//                 frequency: res.data.frequency,
+//                 currentWeek: res.data.currentWeek
+//             }
+//         })
+//       })
+//       .catch(err => console.log(err));
+//     }, []);
+useEffect(() => {
     axios.get(`https://odd-gold-anemone-cap.cyclic.app/products/getProduct/${productId}`)
       .then(res => {
-        setFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                name: res.data.name,
-                price: res.data.price,
-                quantity: res.data.quantity,
-                frequency: res.data.frequency,
-                currentWeek: res.data.currentWeek
-            }
-        })
+        console.log('API response:', res.data);
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          name: res.data.name,
+          price: res.data.price,
+          quantity: res.data.quantity,
+          frequency: res.data.frequency,
+          currentWeek: res.data.currentWeek
+        }));
       })
-      .catch(err => console.log(err));
-    }, []);
+      .catch(err => console.error('API request failed:', err));
+  }, [productId]);
 
     function handleClose(e) {
         if (e.target.id === 'editProduct') {
@@ -60,21 +77,29 @@ const EditProduct = ({setShowEditProduct, productId, toast}) => {
             }
         })
     }
-
-  // Handle update product submission
+    
+    // Handle update product submission
     // const reorderReminderWeek = startOfWeek(addWeeks(formData.currentWeek, formData.frequency))
     
     const handleUpdate = async (e) => {
         e.preventDefault()
+        
+        
+        console.log(formData.currentWeek)
         const parsedDate = parseISO(formData.currentWeek);
-        const reorderReminderWeek = startOfWeek(addWeeks(parsedDate, formData.frequency))
+        console.log(parsedDate)
+        console.log(parsedDate.getFullYear())
+        console.log(typeof parsedDate === typeof new Date())
+        const reorderReminderDay = format(startOfWeek(addWeeks(parsedDate, formData.frequency)), 'y-MM-dd')
+        console.log(reorderReminderDay)
+
 
     const name = formData.name
     const price = formData.price
     const quantity = formData.quantity
     const frequency = formData.frequency
+    const reorderReminderWeek = reorderReminderDay
 
-    console.log(reorderReminderWeek)
     try {
         const res = await axios.put(`https://odd-gold-anemone-cap.cyclic.app/products/updateProduct/${productId}`, {
                 name,
